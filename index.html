@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Víctor Olivari · Negocios inmobiliarios, derecho y formación</title>
+<meta name="description" content="Corredor inmobiliario y abogado en Resistencia, Chaco. Tasaciones, derecho inmobiliario y capacitación profesional para el sector.">
+<link rel="canonical" href="https://www.victorolivari.com.ar/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Víctor Olivari · Negocios inmobiliarios, derecho y formación">
+<meta property="og:description" content="Corredor inmobiliario y abogado en Resistencia, Chaco. Tasaciones, derecho inmobiliario y capacitación profesional para el sector.">
+<meta property="og:url" content="https://www.victorolivari.com.ar/">
+<meta property="og:locale" content="es_AR">
+<meta name="theme-color" content="#131618">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&family=Spectral:wght@300;400;600&display=swap">
+<style>
+
+    body { margin: 0; background: #131618; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--ocre); }
+
+    .page {
+      background: #131618; color: #EAE6E0;
+      font-family: Archivo, Helvetica Neue, sans-serif;
+      --h1: calc(clamp(30px, 3.75vw, 48px) * var(--ts));
+      --quote: calc(clamp(26px, 3.125vw, 40px) * var(--ts));
+      --h2: calc(clamp(23px, 2.66vw, 34px) * var(--ts));
+      --h3: calc(clamp(19px, 1.875vw, 24px) * var(--ts));
+      --body: calc(clamp(16px, 1.3vw, 17px) * var(--bs));
+      --small: calc(clamp(14.5px, 1.2vw, 15.5px) * var(--bs));
+      --label: calc(clamp(12px, 1vw, 13px) * var(--bs));
+      --ink: #EAE6E0; --muted: #A29C95; --panel: #1D2124; --deep: #0E1113; --line: #2A2F32;
+    }
+    .h { font-family: var(--tf); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin: 0; }
+    .wrap { padding-left: 80px; padding-right: 80px; }
+    .lbl { font-size: var(--label); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .body { font-size: var(--body); line-height: 1.72; color: var(--muted); margin: 0; }
+    .ph { background: var(--panel); overflow: hidden; }
+    .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo { background: var(--panel); border: 1px dashed #454D51; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; color: #7C858A; font-size: var(--label); letter-spacing: 0.08em; line-height: 1.7; }
+
+    /* --- botones: neutros en reposo, color del area al pasar el mouse --- */
+    .b { border: 1px solid #3D4548; color: var(--ink); background: transparent;
+         padding: 15px 24px; font-size: var(--small); font-weight: 600; letter-spacing: 0.05em;
+         text-transform: uppercase; display: inline-block; cursor: pointer;
+         transition: background .16s ease, border-color .16s ease, color .16s ease; }
+    .b-br:hover  { background: var(--rojo);    border-color: var(--rojo);    color: #FFFFFF; }
+    .b-tas:hover { background: var(--rojo);    border-color: var(--rojo);    color: #FFFFFF; }
+    .b-der:hover { background: var(--gris);    border-color: var(--gris);    color: #131618; }
+    .b-cap:hover { background: var(--verde);   border-color: var(--verde);   color: #FFFFFF; }
+    .b-mi:hover  { background: var(--ocre);    border-color: var(--ocre);    color: #131618; }
+    .b-men:hover { background: var(--violeta); border-color: var(--violeta); color: #131618; }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .nav-links { display: flex; gap: 28px; font-size: var(--small); color: var(--muted); }
+    .nav-links a { transition: color .16s ease; }
+    .nl-br:hover { color: var(--rojo); } .nl-der:hover { color: var(--gris); }
+    .nl-cap:hover { color: var(--verde); } .nl-mi:hover { color: var(--ocre); }
+    .nl-men:hover { color: var(--violeta); }
+    .nav-burger { display: none; }
+
+    .hero { display: grid; grid-template-columns: 1.55fr 1fr; gap: 52px; padding-top: 40px; padding-bottom: 56px; align-items: center; }
+    .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .creds { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-top: 26px; padding-bottom: 26px; display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .creds-list { display: flex; gap: 40px; flex-wrap: wrap; font-size: var(--small); color: #CFC9C2; }
+
+    .units { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .unit { background: var(--panel); display: flex; flex-direction: column; }
+    .unit-body { padding: 30px 28px 28px 28px; display: flex; flex-direction: column; gap: 15px; flex-grow: 1; }
+
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+    .tray-row { display: grid; grid-template-columns: 84px 1fr 260px; gap: 26px; padding: 18px 0; border-top: 1px solid var(--line); align-items: baseline; }
+    .tray-year { font-family: var(--tf); font-size: calc(var(--body) * 1.2); font-weight: 700; }
+    details > summary { list-style: none; cursor: pointer; padding: 16px 0; border-top: 1px solid var(--line); font-size: var(--small); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; align-items: center; }
+    details > summary::-webkit-details-marker { display: none; }
+    details > summary:hover { color: var(--ink); }
+    details[open] > summary .mas { display: none; }
+    details:not([open]) > summary .menos { display: none; }
+
+    .close-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: var(--label); color: #7C858A; border-top: 1px solid var(--line); padding-top: 32px; padding-bottom: 32px; }
+    .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+    @media (max-width: 1300px) {
+      .wrap { padding-left: 52px; padding-right: 52px; }
+      .hero { gap: 40px; grid-template-columns: 1.4fr 1fr; }
+      .tray-row { grid-template-columns: 76px 1fr 200px; gap: 20px; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 36px; }
+      .units { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding-left: 22px; padding-right: 22px; }
+      .nav-links { display: none; } .nav-burger { display: block; }
+      .hero { padding-top: 28px; padding-bottom: 40px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .b { text-align: center; padding: 16px 20px; }
+      .creds-list { gap: 14px; flex-direction: column; }
+      .gallery { grid-template-columns: 1fr; }
+      .tray-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+      .tray-src { text-align: left !important; }
+      .close-ctas { flex-direction: column; align-items: stretch; }
+      .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+  
+</style>
+</head>
+<body>
+<div class="page" style="--rojo: #C23B2B; --gris: #B6C0C4; --verde: #56A3AF; --ocre: #C79445; --violeta: #9585C4; --tf: Archivo, Helvetica Neue, sans-serif; --ts: 1; --bs: 1;">
+
+  <!-- NAV -->
+  <div class="wrap nav">
+    <div class="h" style="font-size: var(--small); letter-spacing: 0.2em;">VÍCTOR OLIVARI</div>
+    <div class="nav-links">
+      <a class="nl-br" href="#areas">Bienes Raíces</a>
+      <a class="nl-br" href="#areas">Tasaciones</a>
+      <a class="nl-der" href="#areas">Servicios jurídicos</a>
+      <a class="nl-cap" href="#areas">Capacitaciones</a>
+      <a class="nl-men" href="#areas">Mentorías</a>
+      <a class="nl-mi" href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto" style="font-weight: 600;">Contacto</a>
+    </div>
+    <div class="nav-burger">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#EAE6E0" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div>
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 22px;">
+        <div style="width: 44px; height: 2px; background: var(--rojo);"></div>
+        <div class="lbl" style="color: var(--rojo);">Argentina</div>
+      </div>
+      <h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-transform: uppercase; text-wrap: pretty;">Negocios inmobiliarios, derecho, valor y <span style="color: var(--verde);">formación</span>.</h1>
+      <p class="body" style="margin-bottom: 30px; max-width: 560px; font-size: calc(var(--body) * 1.08);">Una mirada integral para decidir con criterio. Corredor inmobiliario, abogado y docente.</p>
+      <div class="hero-ctas">
+        <a class="b b-br"  href="#areas">Bienes Raíces</a>
+        <a class="b b-tas" href="#areas">Tasaciones</a>
+        <a class="b b-der" href="#areas">Servicios jurídicos</a>
+        <a class="b b-cap" href="#areas">Capacitaciones</a>
+        <a class="b b-men" href="#areas">Mentorías</a>
+        <a class="b b-mi"  href="#sobre-mi">Más sobre mí</a>
+      </div>
+    </div>
+    <div class="ph" style="aspect-ratio: 3 / 4; align-items: flex-end; justify-content: flex-start; text-align: left; padding: 26px;"><img width="675" height="1200" src="/fotos/2024-09_retrato-trabajo.webp" alt="Retrato de Víctor Olivari en actividad profesional"></div>
+  </div>
+
+  <!-- CREDENCIALES -->
+  <div class="wrap creds">
+    <div class="lbl">Matrículas y función institucional</div>
+    <div class="creds-list">
+      <div><span style="color: var(--rojo); font-weight: 600;">CCICH</span> N.º 162 · Corredor Inmobiliario</div>
+      <div><span style="color: var(--gris); font-weight: 600;">STJ Chaco</span> N.º 5.081 · Abogado</div>
+      <div>Secretario General · Consejo Directivo CCICH</div>
+    </div>
+  </div>
+
+  <!-- FRASE -->
+  <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;">
+    <div class="h" style="font-size: var(--quote); line-height: 1.26; font-weight: 600; max-width: 1000px; text-wrap: pretty;">Donde otros ven una propiedad, analizamos <span style="color: var(--rojo);">negocio</span>, <span style="color: var(--gris);">riesgo</span> y <span style="color: var(--verde);">valor</span>.</div>
+  </div>
+
+  <!-- UNIDADES -->
+  <div class="wrap" id="areas" style="padding-bottom: 86px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: 30px;">
+      <h2 class="lbl" style="font-weight: 600; margin: 0;">El ecosistema Olivari</h2>
+      <p class="body" style="max-width: 580px; font-size: var(--small);">Las decisiones inmobiliarias pueden involucrar valor, contratos, personas, patrimonio y planificación. Por eso el ecosistema articula tres áreas especializadas.</p>
+    </div>
+    <div class="units">
+      <div class="unit" style="border-top: 3px solid var(--rojo);">
+        <div class="photo" style="aspect-ratio: 16 / 10; border: none; border-bottom: 1px dashed #454D51;">02 · BIENES RAÍCES</div>
+        <div class="unit-body">
+          <div class="lbl">Unidad 01</div>
+          <div class="h" style="font-size: var(--h3); line-height: 1.16;">OLIVARI<br>Bienes Raíces</div>
+          <p class="body" style="font-size: var(--small); flex-grow: 1;">Qué hago en bienes raíces: comercialización, locaciones, compraventas, emprendimientos y tasaciones, con mirada comercial, jurídica y valuatoria.</p>
+          <a class="b b-br" href="/bienes-raices" style="align-self: flex-start;">Ver el área</a>
+        </div>
+      </div>
+      <div class="unit" style="border-top: 3px solid var(--gris);">
+        <div class="ph" style="aspect-ratio: 16 / 10; border: none; border-bottom: 1px dashed #454D51;"><img loading="lazy" decoding="async" width="900" height="675" src="/fotos/2023-08_mesa-trabajo.webp" alt="Víctor Olivari en una mesa de trabajo con colegas"></div>
+        <div class="unit-body">
+          <div class="lbl">Unidad 02</div>
+          <div class="h" style="font-size: var(--h3); line-height: 1.16;">OLIVARI<br>Derecho</div>
+          <p class="body" style="font-size: var(--small); flex-grow: 1;">Servicios jurídicos vinculados a inmuebles: locaciones, propiedad horizontal, sucesiones, desalojos, medianería y prevención de conflictos.</p>
+          <a class="b b-der" href="/servicios-juridicos" style="align-self: flex-start;">Ver el área</a>
+        </div>
+      </div>
+      <div class="unit" style="border-top: 3px solid var(--verde);">
+        <div class="ph" style="aspect-ratio: 16 / 10; border: none; border-bottom: 1px dashed #454D51;"><img loading="lazy" decoding="async" width="617" height="1100" src="/fotos/2015-08_curso-consorcios.webp" alt="Víctor Olivari dictando el curso de administración de consorcios"></div>
+        <div class="unit-body">
+          <div class="lbl">Unidad 03</div>
+          <div class="h" style="font-size: var(--h3); line-height: 1.16;">OLIVARI<br>Capacitaciones</div>
+          <p class="body" style="font-size: var(--small); flex-grow: 1;">Formación práctica para profesionales: tasaciones urbanas y rurales, derecho inmobiliario, consorcios e IA aplicada al real estate.</p>
+          <a class="b b-cap" href="/capacitaciones" style="align-self: flex-start;">Ver el área</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE MI -->
+  <div style="background: var(--deep);" id="sobre-mi">
+    <div class="wrap about" style="padding-top: 84px; padding-bottom: 84px;">
+      <div class="ph" style="aspect-ratio: 4 / 3;"><img loading="lazy" decoding="async" width="720" height="900" src="/fotos/2023-10_congreso-misiones.webp" alt="Víctor Olivari en el 1.º Congreso Inmobiliario de las Misiones"></div>
+      <div>
+        <div class="lbl" style="color: var(--ocre); margin-bottom: 20px;">La mirada de Víctor</div>
+        <p class="h" style="font-size: var(--h3); line-height: 1.5; font-weight: 400; color: var(--ink); margin-bottom: 26px; letter-spacing: -0.012em; text-wrap: pretty;">Trabajo en el punto donde se cruzan los negocios inmobiliarios, el derecho, la valuación y la formación profesional. Esa integración orienta cada contenido, consulta y proyecto.</p>
+        <a class="b b-mi" href="/sobre-mi">Más sobre mí</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAYECTORIA -->
+  <div class="wrap" id="trayectoria" style="padding-top: 84px; padding-bottom: 78px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: 28px;">
+      <h2 class="h" style="font-size: var(--h2);">Trayectoria documentada</h2>
+      <p class="body" style="max-width: 480px; font-size: var(--small);">Cada intervención enlaza a su fuente primaria. La autoridad se demuestra, no se proclama.</p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <div class="tray-row">
+        <div class="tray-year" style="color: var(--verde);">2026</div>
+        <div style="font-size: var(--body);">Tasaciones con inteligencia artificial</div>
+        <a class="tray-src body" style="font-size: var(--small); text-align: right;" href="https://www.diariodecuyo.com.ar/economia/la-incorporacion-la-ia-el-mundo-inmobiliario-ser-mas-humano-la-propuesta-un-profesional-chaco-n6574163" target="_blank" rel="noopener noreferrer">Congreso FIRA Joven · San Juan ↗</a>
+      </div>
+      <div class="tray-row">
+        <div class="tray-year" style="color: var(--rojo);">2025</div>
+        <div style="font-size: var(--body);">Big Data e IA en tasaciones de bienes raíces</div>
+        <a class="tray-src body" style="font-size: var(--small); text-align: right;" href="https://construmis.com.ar/inmobiliario-big-data-e-inteligencia-artificial/" target="_blank" rel="noopener noreferrer">3.º Congreso Inmobiliario · Iguazú ↗</a>
+      </div>
+      <div class="tray-row">
+        <div class="tray-year" style="color: var(--gris);">2022</div>
+        <div style="font-size: var(--body);">Expositor invitado sobre modificaciones a la Ley 27.551</div>
+        <a class="tray-src body" style="font-size: var(--small); text-align: right;" href="https://www.hcdn.gob.ar/comisiones/permanentes/cayganaderia/reuniones/parte.html?fecha=12%2F04%2F2022&amp;id_reunion=10721" target="_blank" rel="noopener noreferrer">Cámara de Diputados de la Nación ↗</a>
+      </div>
+      <details>
+        <summary><span class="mas">Ver antecedentes anteriores</span><span class="menos">Plegar antecedentes</span><span>+</span></summary>
+        <div class="tray-row">
+          <div class="tray-year" style="color: var(--violeta);">2023</div>
+          <div style="font-size: var(--body);">Requisitos para invertir como extranjero</div>
+          <a class="tray-src body" style="font-size: var(--small); text-align: right;" href="https://ugd.edu.ar/images/2023/10/PROGRAMA_CONGRESO_INMOBILIARIO_DE_MISIONES-1.pdf" target="_blank" rel="noopener noreferrer">Congreso de Misiones · UGD ↗</a>
+        </div>
+        <div class="tray-row">
+          <div class="tray-year" style="color: var(--ocre);">2011</div>
+          <div style="font-size: var(--body);">«Defensa de pericias judiciales»</div>
+          <a class="tray-src body" style="font-size: var(--small); text-align: right;" href="https://www.unl.edu.ar/noticias/news/view/iv_congreso_nacional_de_martilleros" target="_blank" rel="noopener noreferrer">IV Congreso Martilleros · UNL ↗</a>
+        </div>
+      </details>
+    </div>
+    <div style="margin-top: 26px;"><a class="b b-mi" href="/trayectoria">Ver dossier completo</a></div>
+  </div>
+
+  <!-- GALERIA -->
+  <div class="wrap" style="padding-bottom: 84px;">
+    <div class="lbl" style="margin-bottom: 18px;">En actividad</div>
+    <div class="gallery">
+      <div class="ph" style="aspect-ratio: 16 / 10;"><img loading="lazy" decoding="async" width="900" height="539" src="/fotos/2015-10_planilla-tasacion.webp" alt="Planilla de tasación y calculadora sobre la mesa de trabajo"></div>
+      <div class="ph" style="aspect-ratio: 16 / 10;"><img loading="lazy" decoding="async" width="1100" height="658" src="/fotos/2015-10_aula-taller.webp" alt="Aula completa durante un taller de tasaciones"></div>
+    </div>
+  </div>
+
+  <!-- CIERRE -->
+  <div style="background: var(--deep);" id="contacto">
+    <div class="wrap" style="padding-top: 84px; padding-bottom: 84px; text-align: center;">
+      <h2 class="h" style="font-size: var(--h2); margin-bottom: 16px;">¿Cuál es tu próximo paso?</h2>
+      <p class="body" style="margin: 0 auto 32px auto; max-width: 560px;">Elegí el área que mejor se ajusta a tu necesidad y te orientaremos por el canal correspondiente.</p>
+      <div class="close-ctas">
+        <a class="b b-br"  href="/bienes-raices">Bienes Raíces</a>
+        <a class="b b-tas" href="/tasaciones">Tasaciones</a>
+        <a class="b b-der" href="/servicios-juridicos">Servicios jurídicos</a>
+        <a class="b b-cap" href="/capacitaciones">Capacitaciones</a>
+        <a class="b b-men" href="/mentorias">Mentorías</a>
+        <a class="b b-mi"  href="/contacto">Convocar una conferencia</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="wrap"><div class="foot">
+    <div class="h" style="font-size: var(--small); letter-spacing: 0.2em; color: var(--ink);">VÍCTOR OLIVARI</div>
+    <div class="foot-links">
+      <a href="https://www.olivari.com.ar" target="_blank" rel="noopener noreferrer">olivari.com.ar ↗</a>
+      <span style="color: #5A6165;" title="Sin registro DNS todavía">olivari-derecho.com.ar · en construcción</span>
+      <a href="https://olivari-capacitaciones.com.ar" target="_blank" rel="noopener noreferrer">olivari-capacitaciones.com.ar ↗</a>
+    </div>
+    <a href="/privacidad">Política de privacidad</a>
+  </div></div>
+
+</div>
+</body>
+</html>

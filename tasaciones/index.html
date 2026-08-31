@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasaciones · Víctor Olivari</title>
+<meta name="description" content="Tasaciones urbanas y rurales, pericias y valuación para sucesiones.">
+<link rel="canonical" href="https://www.victorolivari.com.ar/tasaciones">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tasaciones · Víctor Olivari">
+<meta property="og:description" content="Tasaciones urbanas y rurales, pericias y valuación para sucesiones.">
+<meta property="og:url" content="https://www.victorolivari.com.ar/tasaciones">
+<meta property="og:locale" content="es_AR">
+<meta name="theme-color" content="#131618">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&family=Spectral:wght@300;400;600&display=swap">
+<style>
+
+    body { margin: 0; background: #131618; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--ocre); }
+
+    .page {
+      background: #131618; color: #EAE6E0;
+      font-family: Archivo, Helvetica Neue, sans-serif;
+      --h1: calc(clamp(30px, 3.75vw, 48px) * var(--ts));
+      --quote: calc(clamp(26px, 3.125vw, 40px) * var(--ts));
+      --h2: calc(clamp(23px, 2.66vw, 34px) * var(--ts));
+      --h3: calc(clamp(19px, 1.875vw, 24px) * var(--ts));
+      --body: calc(clamp(16px, 1.3vw, 17px) * var(--bs));
+      --small: calc(clamp(14.5px, 1.2vw, 15.5px) * var(--bs));
+      --label: calc(clamp(12px, 1vw, 13px) * var(--bs));
+      --ink: #EAE6E0; --muted: #A29C95; --panel: #1D2124; --deep: #0E1113; --line: #2A2F32;
+    }
+    .h { font-family: var(--tf); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin: 0; }
+    .wrap { padding-left: 80px; padding-right: 80px; }
+    .lbl { font-size: var(--label); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .body { font-size: var(--body); line-height: 1.72; color: var(--muted); margin: 0; }
+    .ph { background: var(--panel); overflow: hidden; }
+    .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo { background: var(--panel); border: 1px dashed #454D51; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; color: #7C858A; font-size: var(--label); letter-spacing: 0.08em; line-height: 1.7; }
+
+    /* --- botones: neutros en reposo, color del area al pasar el mouse --- */
+    .b { border: 1px solid #3D4548; color: var(--ink); background: transparent;
+         padding: 15px 24px; font-size: var(--small); font-weight: 600; letter-spacing: 0.05em;
+         text-transform: uppercase; display: inline-block; cursor: pointer;
+         transition: background .16s ease, border-color .16s ease, color .16s ease; }
+    .b-br:hover  { background: var(--rojo);    border-color: var(--rojo);    color: #FFFFFF; }
+    .b-tas:hover { background: var(--rojo);    border-color: var(--rojo);    color: #FFFFFF; }
+    .b-der:hover { background: var(--gris);    border-color: var(--gris);    color: #131618; }
+    .b-cap:hover { background: var(--verde);   border-color: var(--verde);   color: #FFFFFF; }
+    .b-mi:hover  { background: var(--ocre);    border-color: var(--ocre);    color: #131618; }
+    .b-men:hover { background: var(--violeta); border-color: var(--violeta); color: #131618; }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .nav-links { display: flex; gap: 28px; font-size: var(--small); color: var(--muted); }
+    .nav-links a { transition: color .16s ease; }
+    .nl-br:hover { color: var(--rojo); } .nl-der:hover { color: var(--gris); }
+    .nl-cap:hover { color: var(--verde); } .nl-mi:hover { color: var(--ocre); }
+    .nl-men:hover { color: var(--violeta); }
+    .nav-burger { display: none; }
+
+    .hero { display: grid; grid-template-columns: 1.55fr 1fr; gap: 52px; padding-top: 40px; padding-bottom: 56px; align-items: center; }
+    .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .creds { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-top: 26px; padding-bottom: 26px; display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .creds-list { display: flex; gap: 40px; flex-wrap: wrap; font-size: var(--small); color: #CFC9C2; }
+
+    .units { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .unit { background: var(--panel); display: flex; flex-direction: column; }
+    .unit-body { padding: 30px 28px 28px 28px; display: flex; flex-direction: column; gap: 15px; flex-grow: 1; }
+
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+    .tray-row { display: grid; grid-template-columns: 84px 1fr 260px; gap: 26px; padding: 18px 0; border-top: 1px solid var(--line); align-items: baseline; }
+    .tray-year { font-family: var(--tf); font-size: calc(var(--body) * 1.2); font-weight: 700; }
+    details > summary { list-style: none; cursor: pointer; padding: 16px 0; border-top: 1px solid var(--line); font-size: var(--small); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; align-items: center; }
+    details > summary::-webkit-details-marker { display: none; }
+    details > summary:hover { color: var(--ink); }
+    details[open] > summary .mas { display: none; }
+    details:not([open]) > summary .menos { display: none; }
+
+    .close-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: var(--label); color: #7C858A; border-top: 1px solid var(--line); padding-top: 32px; padding-bottom: 32px; }
+    .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+    @media (max-width: 1300px) {
+      .wrap { padding-left: 52px; padding-right: 52px; }
+      .hero { gap: 40px; grid-template-columns: 1.4fr 1fr; }
+      .tray-row { grid-template-columns: 76px 1fr 200px; gap: 20px; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 36px; }
+      .units { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding-left: 22px; padding-right: 22px; }
+      .nav-links { display: none; } .nav-burger { display: block; }
+      .hero { padding-top: 28px; padding-bottom: 40px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .b { text-align: center; padding: 16px 20px; }
+      .creds-list { gap: 14px; flex-direction: column; }
+      .gallery { grid-template-columns: 1fr; }
+      .tray-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+      .tray-src { text-align: left !important; }
+      .close-ctas { flex-direction: column; align-items: stretch; }
+      .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+  
+</style>
+</head>
+<body>
+<div class="page"><div class="wrap" style="padding-top: 90px; padding-bottom: 90px; max-width: 720px;"><a href="/" class="lbl" style="color: var(--ocre); text-decoration: none;">← Víctor Olivari</a><h1 class="h" style="font-size: var(--h1); margin: 26px 0 20px;">Tasaciones</h1><p class="body" style="font-size: calc(var(--body) * 1.05);">Esta sección está en preparación: urbanas y rurales, pericias judiciales y valuación para sucesiones y particiones.</p><p class="body" style="margin-top: 18px;">Mientras tanto, la consulta se atiende por el canal de contacto.</p><p style="margin-top: 32px;"><a class="b" href="/contacto" style="display: inline-block;">Escribir una consulta</a></p></div></div>
+</body>
+</html>
