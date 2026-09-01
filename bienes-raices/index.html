@@ -37,6 +37,22 @@
     .lbl { font-size: var(--label); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
     .body { font-size: var(--body); line-height: 1.72; color: var(--muted); margin: 0; }
     .photo { background: var(--panel); border: 1px dashed #454D51; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; color: #7C858A; font-size: var(--label); letter-spacing: 0.08em; line-height: 1.7; }
+    /* --- Relato: columna de lectura para los textos largos --- */
+    .relato { max-width: 66ch; }
+    .relato p { font-size: calc(var(--body) * 1.05); line-height: 1.85; color: #C8C2BB; margin: 0 0 1.15em; }
+    .relato p:last-child { margin-bottom: 0; }
+    .relato .entrada { font-size: calc(var(--body) * 1.28); line-height: 1.62; color: var(--ink); margin-bottom: 1.3em; }
+    .relato strong { color: var(--ink); font-weight: 600; }
+    .destacado { font-family: var(--tf); font-size: var(--h3); line-height: 1.45; letter-spacing: -0.015em;
+                 color: var(--ink); border-left: 2px solid var(--ocre); padding-left: 26px; margin: 34px 0; }
+    /* --- Andamio: lo que Víctor tiene que escribir. Se borra al completarlo. --- */
+    .completar { border: 1px dashed #4C5256; padding: 22px 24px; margin: 32px 0; max-width: 66ch; }
+    .completar > div:first-child { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+    .completar ul { margin: 0; padding-left: 18px; }
+    .completar li { font-size: var(--small); line-height: 1.75; color: #A29C95; margin-bottom: 7px; }
+    .completar li::marker { color: var(--ocre); }
+    .completar li b { color: #C8C2BB; font-weight: 600; }
+    .completar .pista { font-size: var(--label); line-height: 1.7; color: #7C858A; margin: 12px 0 0; font-style: italic; }
     .b { border: 1px solid #3D4548; color: var(--ink); background: transparent; padding: 15px 24px;
          font-size: var(--small); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
          display: inline-block; cursor: pointer; transition: background .16s ease, border-color .16s ease, color .16s ease; }
@@ -110,6 +126,12 @@
     <div class="photo" style="aspect-ratio: 4 / 3;">12 · PROPIEDAD O RECORRIDA</div>
   </div>
 
+
+  <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
+    <div class="lbl" style="color: var(--rojo); margin-bottom: 18px;">Por qué trabajo así</div>
+    <h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Una propiedad no vale lo que dice el cartel</h2>
+    <div class="relato"><p class="entrada">Vale lo que alguien esté dispuesto a pagar, en este mercado, en esta zona, con estos papeles y en este momento. Todo lo demás es una opinión con forma de número.</p><p>Por eso cuando me piden una tasación lo primero que pregunto no es cuántos metros tiene, sino <strong>para qué</strong> la necesitan. Una tasación para vender, una para una sucesión y una para un juicio se parecen en el formato y no se parecen en nada más.</p><div class="destacado">El valor no se adivina: se razona, se escribe y se puede defender frente a quien lo discuta.</div><div class="completar"><div><span style="color: var(--ocre); display: flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><span class="lbl" style="color: var(--ocre);">Contá una operación real</span></div><ul><li><b>Una tasación que sorprendió al dueño.</b> Alguien que creía que su propiedad valía mucho más —o mucho menos— y por qué se equivocaba. Sin nombres, sin datos que permitan identificarlo.</li><li><b>El detalle que casi arruina una operación.</b> Un papel que faltaba, un lindero, una sucesión sin cerrar. Cómo apareció y cómo se resolvió.</li><li><b>Una venta que recomendaste NO hacer.</b> Si tenés una, va acá: es lo que más diferencia a un corredor de un vendedor.</li><li><b>Qué cambió con la tecnología.</b> Cómo tasabas antes y cómo tasás ahora, y qué seguís haciendo a mano porque no se puede delegar.</li></ul><p class="pista">Una sola historia bien contada convence más que cinco mencionadas al pasar. Elegí la que mejor recuerdes y contala completa: qué pasó, qué hiciste, cómo terminó. Si la operación es reconocible, cambiá los datos o pedí permiso.</p></div></div>
+  </div></div>
   <div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Áreas de trabajo</h2></div>
   <div class="wrap" style="padding-bottom: 66px;">
     <div class="cols3">
