@@ -97,12 +97,59 @@
            padding: 11px 16px; font-size: var(--small); color: #C0BAB3;
            transition: border-color .16s ease, color .16s ease; }
     .red:hover { border-color: var(--ocre); color: var(--ink); }
-    .aviso-form { font-size: var(--label); color: #7C858A; line-height: 1.7; }
+    .aviso-form { font-size: var(--label); color: #7C858A; line-height: 1.7; }/*F5*/
+    @media (prefers-reduced-motion: no-preference) {
+      html.anim .ent { opacity: 0; transform: translateY(12px); }
+      html.anim .ent.visto { opacity: 1; transform: none;
+        transition: opacity .4s ease, transform .4s ease; }
+    }
+    /* Impreso no hay scroll ni animación posible: si esto faltara, la hoja
+       saldría en blanco. */
+    @media print {
+      html.anim .ent { opacity: 1 !important; transform: none !important; }
+      .cta-movil { display: none !important; }
+    }
+    /*/F5*/
   
 </style>
 </head>
 <body>
-<div class="page" style="--rojo: #C23B2B; --gris: #B6C0C4; --verde: #56A3AF; --ocre: #C79445; --violeta: #9585C4; --tf: Archivo, Helvetica Neue, sans-serif; --ts: 1; --bs: 1;">
+<div class="page" style="--rojo: #C23B2B; --gris: #B6C0C4; --verde: #56A3AF; --ocre: #C79445; --violeta: #9585C4; --tf: Archivo, Helvetica Neue, sans-serif; --ts: 1; --bs: 1;"><!--F5--><script>
+(function () {
+  var raiz = document.documentElement;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  raiz.className += ' anim';
+  function arrancar() {
+    var ojo = new IntersectionObserver(function (vistos) {
+      vistos.forEach(function (v) {
+        if (!v.isIntersecting) return;
+        v.target.classList.add('visto');
+        ojo.unobserve(v.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    var sel = '.card, .row, .relato, .cols2 > div, .cols3 > *, .anio, .aviso';
+    var piezas = document.querySelectorAll(sel);
+    piezas.forEach(function (e, i) {
+      // Escalonado corto: sugiere orden de lectura sin hacer esperar a nadie.
+      e.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
+      e.classList.add('ent');
+      ojo.observe(e);
+    });
+    // Red de seguridad. Hay entornos donde IntersectionObserver existe pero no
+    // dispara nunca (vistas previas sin composición, por ejemplo). Sin esto la
+    // página se quedaría en opacidad 0: en blanco. A los dos segundos se
+    // muestra todo, con animación o sin ella.
+    setTimeout(function () {
+      ojo.disconnect();
+      piezas.forEach(function (e) { e.classList.add('visto'); });
+    }, 2000);
+  }
+  if (document.readyState === 'loading')
+    document.addEventListener('DOMContentLoaded', arrancar);
+  else arrancar();
+})();
+</script><!--/F5-->
   <div class="wrap nav">
     <a class="h" style="font-size: var(--small); letter-spacing: 0.2em;" href="/">VÍCTOR OLIVARI</a>
     <div class="nav-links">
@@ -170,13 +217,27 @@
         <label class="campo"><span>Mensaje</span><textarea id="cap-msj" placeholder="Contame brevemente de qué se trata"></textarea></label>
         <a class="b b-cap" style="text-align: center; margin-top: 4px;" href="#" data-enviar="cap">Enviar consulta</a>
         <div class="via" style="color: var(--verde);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 7l10 7 10-7"/></svg><span style="color: #C0BAB3;">olivari.capacitaciones@gmail.com</span></div>
-        <a class="via" href="https://wa.me/549362154044118" target="_blank" rel="noopener noreferrer" style="color: var(--verde);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp de la unidad</span></a>
+        <a class="via" href="https://wa.me/5493624044118" target="_blank" rel="noopener noreferrer" style="color: var(--verde);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp de la unidad</span></a>
       </div>
     </div>
     <div class="aviso" style="margin-top: 24px;">El envío de una consulta jurídica no crea una relación profesional ni implica el patrocinio del asunto. No envíes documentación confidencial por el formulario.</div>
     <p class="aviso-form" style="margin-top: 14px;">Al enviar, se abre tu programa de correo con los datos ya cargados y dirigidos a la casilla de la unidad. Los datos se usan únicamente para responder tu consulta, conforme a la <a href="/privacidad" style="color: var(--ocre);">política de privacidad</a> y a la Ley 25.326 de Protección de Datos Personales.</p>
   </div>
 
+
+
+
+
+
+
+<!--F5-->
+  <div class="wrap" style="padding-top: 8px; padding-bottom: 62px;">
+    <h2 class="h" style="font-size: var(--h2); margin-bottom: 10px;">Algunas excusas para escribirme</h2>
+    <p class="body" style="max-width: 660px; margin-bottom: 30px;">Si tu situación se parece a alguna de estas, el formulario de arriba es el lugar. Y si no se parece a ninguna, escribime igual: la lista es orientativa, no un filtro.</p>
+    <div class="cols3" style="gap: 32px;"><div style="border-left: 2px solid var(--rojo); padding-left: 18px;"><div class="lbl" style="color: var(--rojo); margin-bottom: 14px;">Bienes Raíces y Tasaciones</div><ul class="body" style="font-size: var(--small); margin: 0; padding-left: 18px; line-height: 1.65;"><li style="margin-bottom: 10px;">Querés saber cuánto vale una propiedad antes de decidir si la vendés.</li><li style="margin-bottom: 10px;">Necesitás una tasación para una sucesión, una partición o un juicio.</li><li style="margin-bottom: 10px;">Te ofrecieron un precio y querés una segunda opinión antes de firmar.</li><li style="margin-bottom: 10px;">Estás por comprar y preferís que alguien revise los papeles primero.</li></ul></div><div style="border-left: 2px solid var(--gris); padding-left: 18px;"><div class="lbl" style="color: var(--gris); margin-bottom: 14px;">Servicios jurídicos</div><ul class="body" style="font-size: var(--small); margin: 0; padding-left: 18px; line-height: 1.65;"><li style="margin-bottom: 10px;">Tenés un contrato de alquiler por firmar y querés que lo lea alguien.</li><li style="margin-bottom: 10px;">Te llegó una intimación o se te venció un plazo y no sabés qué sigue.</li><li style="margin-bottom: 10px;">Heredaste un inmueble y la sucesión todavía está abierta.</li><li style="margin-bottom: 10px;">Administrás un consorcio y necesitás encuadrar una decisión.</li><li style="margin-bottom: 10px;">Sos una inmobiliaria y necesitás asistencia jurídica en una operación.</li></ul></div><div style="border-left: 2px solid var(--verde); padding-left: 18px;"><div class="lbl" style="color: var(--verde); margin-bottom: 14px;">Capacitaciones y Mentorías</div><ul class="body" style="font-size: var(--small); margin: 0; padding-left: 18px; line-height: 1.65;"><li style="margin-bottom: 10px;">Querés anotarte en un curso y no sabés por cuál empezar.</li><li style="margin-bottom: 10px;">Sos un colegio o una cámara y querés capacitar a tus matriculados.</li><li style="margin-bottom: 10px;">Organizás un congreso y buscás disertante en tasaciones, alquileres o inteligencia artificial aplicada.</li><li style="margin-bottom: 10px;">Te recibiste hace poco y querés acompañamiento en las primeras operaciones.</li></ul></div></div>
+    <p class="aviso-form" style="margin-top: 26px;">Dos cosas que no hago por acá: resolver consultas jurídicas por mensaje —hace falta ver la documentación— y recibir documentación confidencial por el formulario. Para eso está la reunión.</p>
+  </div>
+<!--/F5-->
   <div style="background: var(--deep);">
     <div class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
       <div class="cols2" style="gap: 48px;">

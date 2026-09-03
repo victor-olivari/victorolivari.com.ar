@@ -81,12 +81,59 @@
       .wrap { padding-left: 22px; padding-right: 22px; }
       .nav-links { display: none; } .nav-burger { display: block; }
       .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }/*F5*/
+    @media (prefers-reduced-motion: no-preference) {
+      html.anim .ent { opacity: 0; transform: translateY(12px); }
+      html.anim .ent.visto { opacity: 1; transform: none;
+        transition: opacity .4s ease, transform .4s ease; }
     }
+    /* Impreso no hay scroll ni animación posible: si esto faltara, la hoja
+       saldría en blanco. */
+    @media print {
+      html.anim .ent { opacity: 1 !important; transform: none !important; }
+      .cta-movil { display: none !important; }
+    }
+    /*/F5*/
   
 </style>
 </head>
 <body>
-<div class="page" style="--rojo: #C23B2B; --gris: #B6C0C4; --verde: #56A3AF; --ocre: #C79445; --violeta: #9585C4; --tf: Archivo, Helvetica Neue, sans-serif; --ts: 1; --bs: 1;">
+<div class="page" style="--rojo: #C23B2B; --gris: #B6C0C4; --verde: #56A3AF; --ocre: #C79445; --violeta: #9585C4; --tf: Archivo, Helvetica Neue, sans-serif; --ts: 1; --bs: 1;"><!--F5--><script>
+(function () {
+  var raiz = document.documentElement;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  raiz.className += ' anim';
+  function arrancar() {
+    var ojo = new IntersectionObserver(function (vistos) {
+      vistos.forEach(function (v) {
+        if (!v.isIntersecting) return;
+        v.target.classList.add('visto');
+        ojo.unobserve(v.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    var sel = '.card, .row, .relato, .cols2 > div, .cols3 > *, .anio, .aviso';
+    var piezas = document.querySelectorAll(sel);
+    piezas.forEach(function (e, i) {
+      // Escalonado corto: sugiere orden de lectura sin hacer esperar a nadie.
+      e.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
+      e.classList.add('ent');
+      ojo.observe(e);
+    });
+    // Red de seguridad. Hay entornos donde IntersectionObserver existe pero no
+    // dispara nunca (vistas previas sin composición, por ejemplo). Sin esto la
+    // página se quedaría en opacidad 0: en blanco. A los dos segundos se
+    // muestra todo, con animación o sin ella.
+    setTimeout(function () {
+      ojo.disconnect();
+      piezas.forEach(function (e) { e.classList.add('visto'); });
+    }, 2000);
+  }
+  if (document.readyState === 'loading')
+    document.addEventListener('DOMContentLoaded', arrancar);
+  else arrancar();
+})();
+</script><!--/F5-->
   <div class="wrap nav">
     <a class="h" style="font-size: var(--small); letter-spacing: 0.2em;" href="/">VÍCTOR OLIVARI</a>
     <div class="nav-links">

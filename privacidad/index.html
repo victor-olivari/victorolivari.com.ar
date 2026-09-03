@@ -109,7 +109,19 @@
       .tray-src { text-align: left !important; }
       .close-ctas { flex-direction: column; align-items: stretch; }
       .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }/*F5*/
+    @media (prefers-reduced-motion: no-preference) {
+      html.anim .ent { opacity: 0; transform: translateY(12px); }
+      html.anim .ent.visto { opacity: 1; transform: none;
+        transition: opacity .4s ease, transform .4s ease; }
     }
+    /* Impreso no hay scroll ni animación posible: si esto faltara, la hoja
+       saldría en blanco. */
+    @media print {
+      html.anim .ent { opacity: 1 !important; transform: none !important; }
+      .cta-movil { display: none !important; }
+    }
+    /*/F5*/
   
 </style>
 </head>
