@@ -111,9 +111,10 @@
       .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
     }/*F5*/
     @media (prefers-reduced-motion: no-preference) {
-      html.anim .ent { opacity: 0; transform: translateY(12px); }
+      html.anim .ent { opacity: 0; transform: translateY(26px); }
       html.anim .ent.visto { opacity: 1; transform: none;
-        transition: opacity .4s ease, transform .4s ease; }
+        transition: opacity .62s cubic-bezier(.22,.61,.36,1),
+                    transform .62s cubic-bezier(.22,.61,.36,1); }
     }
     /* Impreso no hay scroll ni animación posible: si esto faltara, la hoja
        saldría en blanco. */
@@ -127,7 +128,79 @@
 </head>
 <body>
 
-<div class="page">
+<div class="page"><script>
+(function () {
+  var raiz = document.documentElement;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  raiz.className += ' anim';
+  function arrancar() {
+    var disparo = false;
+    var ojo = new IntersectionObserver(function (vistos) {
+      vistos.forEach(function (v) {
+        if (!v.isIntersecting) return;
+        disparo = true;
+        v.target.classList.add('visto');
+        ojo.unobserve(v.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+
+    // Los bloques que arma cada página. Sin .unit ni .tray-row la portada no
+    // tenía un solo elemento animado: era la página donde menos se notaba.
+    var sel = '.card, .row, .relato, .unit, .tray-row, .creds-list, .photo,'
+            + ' .cols2 > div, .cols3 > *, .anio, .aviso, .hero-ctas,'
+            + ' .about > div, h2.h';
+    var piezas = [].slice.call(document.querySelectorAll(sel));
+    // Si un bloque está dentro de otro que también anima, las opacidades se
+    // multiplican y el de adentro aparece tarde y turbio. Gana el de afuera.
+    piezas = piezas.filter(function (e) {
+      return !piezas.some(function (o) { return o !== e && o.contains(e); });
+    });
+    piezas.forEach(function (e, i) {
+      // Escalonado: sugiere orden de lectura sin hacer esperar a nadie.
+      e.style.transitionDelay = ((i % 3) * 90) + 'ms';
+      e.classList.add('ent');
+      ojo.observe(e);
+    });
+
+    // Red de seguridad, y sólo eso. Hay entornos donde IntersectionObserver
+    // existe pero no dispara nunca: ahí la página quedaría en blanco. Se
+    // revisa si disparó ALGUNA vez; si sí, no se toca nada, porque destapar
+    // todo de golpe era justamente lo que borraba el efecto.
+    function red() {
+      if (disparo) return;
+      // Pestaña abierta de fondo: no disparó porque nadie la está mirando.
+      // Destapar ahora sería gastar la animación antes de que llegue.
+      if (document.hidden) {
+        document.addEventListener('visibilitychange', function v() {
+          document.removeEventListener('visibilitychange', v);
+          setTimeout(red, 900);
+        });
+        return;
+      }
+      ojo.disconnect();
+      piezas.forEach(function (e) { e.classList.add('visto'); });
+    }
+    setTimeout(red, 2500);
+  }
+  // Esperar a que la maqueta esté quieta antes de mirar qué se ve. Si se mide
+  // antes de que carguen las tipografías, todo está todavía apilado arriba, el
+  // observador cree que la página entera está a la vista y la marca vista de
+  // una: después, al bajar, no queda nada por animar. Era exactamente lo que
+  // pasaba. Si requestAnimationFrame no corre —entornos sin composición— esto
+  // no llega a ejecutarse y la página se ve entera, que es lo correcto: sin
+  // cuadros tampoco habría animación que mostrar.
+  function cuandoEsteQuieta() {
+    var fuentes = (document.fonts && document.fonts.ready) || Promise.resolve();
+    // Un temporizador y no requestAnimationFrame: en una pestaña abierta de
+    // fondo rAF no corre, y con rAF la animación no llegaba a instalarse nunca.
+    fuentes.then(function () { setTimeout(arrancar, 60); });
+  }
+  if (document.readyState === 'loading')
+    document.addEventListener('DOMContentLoaded', cuandoEsteQuieta);
+  else cuandoEsteQuieta();
+})();
+</script>
 <div class="wrap" style="padding-top: 84px; padding-bottom: 84px; max-width: 760px;">
 <a href="/" class="lbl" style="color: var(--ocre); text-decoration: none;">&larr; Víctor Olivari</a>
 <h1 class="h" style="font-size: var(--h1); margin: 26px 0 10px;">Política de privacidad</h1>
