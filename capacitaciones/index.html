@@ -15,7 +15,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&family=Spectral:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Spectral:wght@400&display=swap">
 <style>
 
     body { margin: 0; background: #131618; }
@@ -97,211 +97,333 @@
       .wrap { padding-left: 22px; padding-right: 22px; }
       .nav-links { display: none; } .nav-burger { display: block; }
       .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
-    }/*F5*/
-    @media (prefers-reduced-motion: no-preference) {
-      html.anim .ent { opacity: 0; transform: translateY(26px); }
-      html.anim .ent.visto { opacity: 1; transform: none;
-        transition: opacity .62s cubic-bezier(.22,.61,.36,1),
-                    transform .62s cubic-bezier(.22,.61,.36,1); }
     }
-    /* Impreso no hay scroll ni animación posible: si esto faltara, la hoja
-       saldría en blanco. */
-    @media print {
-      html.anim .ent { opacity: 1 !important; transform: none !important; }
-      .cta-movil { display: none !important; }
-    }
-    .cta-movil { display: none; }
-    @media (max-width: 640px) {
-      .cta-movil { display: flex; position: fixed; left: 0; right: 0; bottom: 0;
-        z-index: 40; align-items: center; justify-content: center; gap: 10px;
-        padding: 15px 18px; font-size: var(--small); font-weight: 600;
-        letter-spacing: 0.05em; text-transform: uppercase;
-        box-shadow: 0 -8px 24px rgba(0,0,0,.35); }
-      .cta-movil:hover { color: inherit; }
-      /* Sin esto la barra tapa el pie de página. */
-      .page { padding-bottom: 56px; }
-    }
-    /*/F5*/
-  
+  /*EDITORIAL*/
+/* Diseño compartido. sincronizar-editorial.py lo integra en los artboards. */
+html { color-scheme: dark; scroll-padding-top: 5.5rem; }
+body { margin: 0; background: #131618; }
+.page { --ts: 1; --bs: 1; --tf: Spectral, Georgia, serif;
+  --rojo: #C98579; --gris: #BAC5CA; --verde: #8DBDC3; --ocre: #C9AE7D; --violeta: #B4A7CA;
+  --ink: #EEEAE4; --muted: #B6B3AD; --panel: #1C2225; --deep: #101416; --line: #353C3F;
+  --h1: clamp(2.15rem, 1.4rem + 3vw, 4.25rem); --h2: clamp(1.8rem, 1.3rem + 1.8vw, 2.8rem);
+  --h3: clamp(1.3rem, 1.1rem + .6vw, 1.65rem); --quote: clamp(1.8rem, 1.1rem + 2.6vw, 3.2rem);
+  --body: 1.0625rem; --small: 1rem; --label: .8125rem;
+  font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--ink); line-height: 1.6;
+  overflow-wrap: break-word; min-height: 100vh; }
+.page *, .page *::before, .page *::after { box-sizing: border-box; }
+.page [hidden] { display: none !important; }
+.page img { display: block; max-width: 100%; }
+.page a { color: inherit; text-decoration: none; text-underline-offset: .25em; }
+.page a:focus-visible, .page button:focus-visible, .page summary:focus-visible,
+.page input:focus-visible, .page select:focus-visible, .page textarea:focus-visible {
+  outline: 2px solid var(--ocre); outline-offset: 5px; }
+.page button, .page input, .page select, .page textarea { font: inherit; }
+.page button, .page summary, .page a { -webkit-tap-highlight-color: rgba(201,174,125,.15); }
+.page .wrap { width: 100%; max-width: 1360px; margin-inline: auto; padding-inline: 22px; }
+.page .h { font-family: Spectral, Georgia, serif; font-weight: 400; letter-spacing: -.025em; line-height: 1.15; text-wrap: balance; }
+.page h1 { text-transform: none !important; }
+.page .lbl { font-family: Archivo, Arial, sans-serif; font-size: .8125rem; letter-spacing: .13em; line-height: 1.6; }
+.page .body { color: var(--muted); line-height: 1.7; }
+.page .b { display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 48px; padding: 12px 20px; max-width: 100%; border: 1px solid #62696A;
+  border-radius: 2px; font-size: 1rem; font-family: Archivo, Arial, sans-serif;
+  line-height: 1.45; font-weight: 500; letter-spacing: 0; text-transform: none;
+  color: var(--ink); background: transparent; cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease; }
+.page .b.primary { background: var(--ink); border-color: var(--ink); color: #131618; }
+.page .text-link { display: inline-flex; gap: .7rem; align-items: center; min-height: 44px;
+  text-decoration: underline; text-decoration-color: #737A7B; }
+.page .text-link::after { content: '↗'; font-family: Arial, sans-serif; }
+.page .skip-link { position: absolute; left: 22px; top: -150px; z-index: 100;
+  background: var(--ink); color: #131618; padding: 14px 20px; }
+.page .skip-link:focus { top: 12px; }
+.page .site-header { position: sticky; top: 0; z-index: 30; background: #131618; border-bottom: 1px solid var(--line); }
+.page .site-nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 72px; }
+.page .brand { font-family: Archivo, Arial, sans-serif; font-size: .85rem; letter-spacing: .16em; font-weight: 600; white-space: nowrap; }
+.page .desktop-links { display: none; }
+.page .mobile-menu > summary { display: flex; gap: 10px; align-items: center; justify-content: center;
+  min-width: 76px; min-height: 48px; padding: 8px 0; border: 0; color: var(--ink);
+  font-size: .875rem; letter-spacing: 0; text-transform: none; }
+.page summary { cursor: pointer; list-style: none; }
+.page summary::-webkit-details-marker { display: none; }
+.page .menu-icon { width: 20px; height: 12px; border-top: 1px solid; border-bottom: 1px solid; }
+.page .mobile-menu[open] .menu-icon { height: 1px; border-bottom: 0; }
+.page .mobile-links { position: absolute; inset: 72px 0 auto; padding: 12px 22px 24px;
+  background: #1C2225; border-bottom: 1px solid var(--line); max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); overflow: auto; }
+.page .mobile-links a { display: block; padding: 12px 0; min-height: 48px; border-bottom: 1px solid var(--line); }
+.page [aria-current='page'] { color: var(--ocre); }
+.page main { outline: none; }
+.page .hero { display: grid; grid-template-columns: minmax(0,1fr); gap: 26px; padding-block: 32px 44px; }
+.page .hero-copy .lbl { color: var(--ocre); margin-bottom: 12px; }
+.page .hero h1 { font-size: var(--h1); max-width: 17ch; margin-bottom: 16px; }
+.page .hero .hero-intro { max-width: 48ch; font-size: 1rem; margin: 0 0 20px; }
+.page .hero-ctas { display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; }
+.page .hero-ctas .b { flex: 1 1 auto; padding-inline: 14px; }
+.page .hero-portrait { margin: 0; min-width: 0; }
+.page .hero-portrait .ph { height: 245px; border-radius: 2px; }
+.page .hero-portrait img { object-position: 60% 38%; }
+.page figcaption { margin-top: 12px; font-size: .8125rem; color: var(--muted); }
+.page .ph { background: var(--panel); padding: 0 !important; border: 0 !important; overflow: hidden; border-radius: 2px; }
+.page .ph img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8); }
+.page .section { padding-block: 48px; }
+.page .section-head { display: grid; gap: 14px; margin-bottom: 26px; }
+.page .section-head h2 { font-size: var(--h2); }
+.page .section-head p { max-width: 54ch; margin: 0; }
+.page .creds { padding-block: 22px; border-block: 1px solid var(--line); background: var(--panel); }
+.page .creds-list { display: flex; flex-direction: column; gap: 8px; font-size: .875rem; margin-top: 12px; }
+.page .manifesto { max-width: 1000px; padding-block: 44px; }
+.page .manifesto p { font-size: var(--quote); line-height: 1.3; margin: 0; }
+.page .units { display: grid; grid-template-columns: minmax(0,1fr); gap: 16px; }
+.page .unit { background: transparent; border-top: 1px solid var(--line); min-width: 0; }
+.page .unit-body { padding: 24px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.page .unit h3 { margin: 0; font-size: 1.65rem; }
+.page .unit p { margin: 0; }
+.page .unit .text-link { margin-top: auto; }
+.page .unit .lbl { color: var(--area, var(--muted)); }
+.page .about { display: grid; grid-template-columns: minmax(0,1fr); gap: 28px; }
+.page .about .ph { aspect-ratio: 4 / 3; }
+.page .about h2 { font-size: var(--h2); margin: 12px 0 18px; }
+.page .about p { max-width: 55ch; }
+.page .about .text-link { margin-top: 16px; }
+.page .gallery { display: grid; grid-template-columns: minmax(0,1fr); gap: 26px; }
+.page .gallery figure { margin: 0; }
+.page .gallery .ph { aspect-ratio: 16 / 10; }
+.page .close-ctas { display: flex; flex-direction: row; flex-wrap: wrap; gap: 12px; justify-content: flex-start; }
+.page .closing { border-top: 1px solid var(--line); }
+.page .closing h2 { font-size: var(--h2); margin-bottom: 16px; }
+.page .closing p { margin: 0 0 24px; max-width: 54ch; }
+.page .foot { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; padding-block: 32px; font-size: .875rem; }
+.page .foot .h { font: 600 .85rem Archivo, Arial, sans-serif; white-space: nowrap; }
+.page .foot-links { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+.page .foot a { min-height: 44px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }
+.page .phero { display: grid; grid-template-columns: minmax(0,1fr); gap: 28px; padding-block: 36px 44px; }
+.page .phero .ph { max-height: 300px; aspect-ratio: 4 / 3 !important; }
+.page .phero h1 { max-width: 22ch; }
+.page .phero .body { font-size: var(--body) !important; }
+.page .relato { max-width: 66ch; }
+.page .relato p, .page .relato .entrada { font-size: var(--body); line-height: 1.75; }
+.page .destacado { font: 400 var(--h3)/1.5 Spectral, Georgia, serif; border-left: 1px solid var(--ocre); margin: 24px 0; }
+.page .cols2, .page .cols3 { display: grid; grid-template-columns: minmax(0,1fr); gap: 18px; }
+.page .cols2 > *, .page .cols3 > *, .page .row > *, .page .tray-row > * { min-width: 0; }
+.page .card { padding: 24px; border-top-width: 1px !important; }
+.page .row, .page .tray-row { display: grid; grid-template-columns: minmax(0,1fr) !important; gap: 10px; padding-block: 22px; }
+.page .tray-src { text-align: left !important; }
+.page .tray-thumb { width: 100%; max-width: 280px; }
+.page .practice-list { border-top: 1px solid var(--line); }
+.page .practice { border-bottom: 1px solid var(--line); }
+.page .practice > summary { min-height: 64px; display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; border: 0; font-family: Archivo, Arial, sans-serif; font-size: 1.0625rem; color: var(--ink); font-weight: 400; letter-spacing: 0; text-transform: none; }
+.page .practice > summary::after { content: '+'; font: 300 1.6rem Arial, sans-serif; color: var(--muted); flex-shrink: 0; }
+.page .practice[open] > summary::after { content: '−'; }
+.page .practice > .body { padding-bottom: 24px; max-width: 65ch; }
+.page .program-group { margin-bottom: 24px; }
+.page .program-group > summary { min-height: 64px; border: 0; font-weight: 400; letter-spacing: 0; text-transform: none; gap: 16px; color: var(--ink); }
+.page .program-group > summary::after { content: '+'; font: 1.5rem Arial, sans-serif; }
+.page .program-group[open] > summary::after { content: '−'; }
+.page .program-group .cols3 { padding-bottom: 12px; }
+.page .program-group .h { font-family: Archivo, Arial, sans-serif; font-size: 1.125rem !important; line-height: 1.4; }
+.page .program-group > summary .h { font: 400 1.5rem/1.3 Spectral, Georgia, serif !important; }
+.page .program-group summary { display: flex; align-items: center; justify-content: space-between; }
+.page .contact-areas { display: grid; gap: 18px; }
+.page .contact-area { border: 1px solid var(--line); padding: 0 20px; background: var(--panel); }
+.page .contact-area > summary { min-height: 80px; border: 0; text-transform: none; letter-spacing: 0; color: var(--ink); font-size: 1.125rem; gap: 16px; }
+.page .contact-area > summary::after { content: '+'; font: 1.5rem Arial, sans-serif; }
+.page .contact-area[open] > summary::after { content: '−'; }
+.page .contact-area .card { padding: 0 0 24px; border: 0 !important; }
+.page .campo > span { font-size: .875rem; text-transform: none; letter-spacing: 0; }
+.page .campo input, .page .campo select, .page .campo textarea { width: 100%; min-width: 0; max-width: 100%; min-height: 48px;
+  padding: 12px; background: #131618; color: var(--ink); border: 1px solid #61696D; border-radius: 2px; font-size: 1rem; }
+.page .campo textarea { min-height: 120px; }
+.page .campo input::placeholder, .page .campo textarea::placeholder { color: #A9ACAC; opacity: 1; }
+.page .via { overflow-wrap: anywhere; }
+.page .via svg { flex-shrink: 0; }
+.page .chip { font-size: 1rem; }
+.page .record-img { max-width: 100%; height: auto; }
+.page .cta-movil { position: static !important; display: flex !important; width: fit-content !important; max-width: calc(100% - 44px); margin: 0 auto 32px; padding: 14px 20px; gap: 10px; align-items: center; border: 1px solid var(--line); background: transparent !important; color: var(--ink) !important; box-shadow: none !important; border-radius: 2px !important; }
+@media (hover: hover) {
+  .page .b:hover { background: #2B3336; color: var(--ink); border-color: var(--ocre); }
+  .page .b.primary:hover { background: #D8C9AD; color: #131618; border-color: #D8C9AD; }
+  .page .text-link:hover, .page .foot a:hover, .page .desktop-links a:hover { color: var(--ocre); }
+}
+@media (max-width: 699px) {
+  .page .anio-cuerpo > div[style*='grid-template-columns'] { grid-template-columns: minmax(0, 1fr) !important; gap: 8px !important; }
+  .page .anio-cuerpo > div > div { min-width: 0; }
+  .page .wrap[style*='padding-top'] { padding-top: 40px !important; }
+  .page .wrap[style*='padding-bottom'] { padding-bottom: 40px !important; }
+  .page .wrap[style*='padding-bottom: 18px'], .page .wrap[style*='padding-bottom: 26px'] { padding-bottom: 18px !important; }
+  .page .cols2[style], .page .cols3[style] { gap: 22px !important; }
+  .page h2[style*='max-width'] { max-width: 100% !important; }
+}
+@media (min-width: 700px) {
+  .page .wrap { padding-inline: 40px; }
+  .page .hero { grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 36px; align-items: center; padding-block: 52px; }
+  .page .hero h1 { font-size: clamp(2.5rem, 4.2vw, 4.25rem); }
+  .page .hero-portrait .ph { height: auto; aspect-ratio: 4 / 5; }
+  .page .hero-portrait img { object-position: 100% 45%; }
+  .page .section { padding-block: 64px; }
+  .page .creds-list { flex-direction: row; flex-wrap: wrap; gap: 12px 32px; }
+  .page .units { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; }
+  .page .unit-body { height: 100%; }
+  .page .gallery, .page .cols2, .page .cols3 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .page .about { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 44px; align-items: center; }
+  .page .phero { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); padding-block: 56px; }
+  .page .phero .ph { max-height: 430px; }
+  .page .phero.text-only { grid-template-columns: 1fr; }
+  .page .tray-row { grid-template-columns: 80px minmax(0,1fr) minmax(180px,.75fr) !important; gap: 24px; }
+  .page .row { grid-template-columns: minmax(170px,.6fr) minmax(0,1.7fr) !important; gap: 26px; }
+  .page .contact-areas { max-width: 820px; }
+}
+@media (min-width: 1100px) {
+  .page .wrap { padding-inline: 64px; }
+  .page .hero { gap: 80px; padding-block: 64px 72px; }
+  .page .hero-portrait { max-width: 440px; justify-self: end; width: 100%; }
+  .page .hero .hero-intro { font-size: 1.125rem; }
+  .page .hero-ctas .b { flex: none; padding-inline: 24px; }
+  .page .desktop-links { display: flex; align-items: center; gap: 18px; font-size: .875rem; }
+  .page .desktop-links a { display: inline-flex; align-items: center; min-height: 44px; white-space: nowrap; }
+  .page .mobile-menu { display: none; }
+  .page .section { padding-block: 80px; }
+  .page .section-head { grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; }
+  .page .cols3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .page .foot { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .page details[open] > .body, .page details[open] > .cols3, .page details[open] > .card { animation: editorial-open .22s ease-out; }
+  @keyframes editorial-open { from { opacity: .5; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .page .site-header, .page .skip-link, .page .cta-movil { display: none !important; }
+  .page .ph img { filter: none; }
+}
+
+/*/EDITORIAL*/
+
 </style>
 </head>
 <body>
-<div class="page" style="--rojo: #C23B2B; --gris: #B6C0C4; --verde: #56A3AF; --ocre: #C79445; --violeta: #9585C4; --tf: Archivo, Helvetica Neue, sans-serif; --ts: 1; --bs: 1;"><!--F5--><script>
-(function () {
-  var raiz = document.documentElement;
-  if (!('IntersectionObserver' in window)) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  raiz.className += ' anim';
-  function arrancar() {
-    var disparo = false;
-    var ojo = new IntersectionObserver(function (vistos) {
-      vistos.forEach(function (v) {
-        if (!v.isIntersecting) return;
-        disparo = true;
-        v.target.classList.add('visto');
-        ojo.unobserve(v.target);
-      });
-    }, { rootMargin: '0px 0px -12% 0px' });
+<div class="page" data-page="Capacitaciones" style="--rojo: #C98579; --gris: #BAC5CA; --verde: #8DBDC3; --ocre: #C9AE7D; --violeta: #B4A7CA; --tf: Spectral, Georgia, serif; --ts: 1; --bs: 1;"><a class="skip-link" href="#contenido-Capacitaciones">Ir al contenido</a><header class="site-header"><nav aria-label="Navegación principal" class="wrap site-nav"><a class="brand" href="/">VÍCTOR OLIVARI</a><div class="desktop-links"><a href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a href="/servicios-juridicos">Derecho</a><a aria-current="page" href="/capacitaciones">Capacitaciones</a><a href="/mentorias">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div><details class="mobile-menu"><summary>Menú<span aria-hidden="true" class="menu-icon"></span></summary><div class="mobile-links"><a href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a href="/servicios-juridicos">Derecho</a><a aria-current="page" href="/capacitaciones">Capacitaciones</a><a href="/mentorias">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div></details></nav></header><main id="contenido-Capacitaciones" tabindex="-1">
 
-    // Los bloques que arma cada página. Sin .unit ni .tray-row la portada no
-    // tenía un solo elemento animado: era la página donde menos se notaba.
-    var sel = '.card, .row, .relato, .unit, .tray-row, .creds-list, .photo,'
-            + ' .cols2 > div, .cols3 > *, .anio, .aviso, .hero-ctas,'
-            + ' .about > div, h2.h';
-    var piezas = [].slice.call(document.querySelectorAll(sel));
-    // Si un bloque está dentro de otro que también anima, las opacidades se
-    // multiplican y el de adentro aparece tarde y turbio. Gana el de afuera.
-    piezas = piezas.filter(function (e) {
-      return !piezas.some(function (o) { return o !== e && o.contains(e); });
-    });
-    piezas.forEach(function (e, i) {
-      // Escalonado: sugiere orden de lectura sin hacer esperar a nadie.
-      e.style.transitionDelay = ((i % 3) * 90) + 'ms';
-      e.classList.add('ent');
-      ojo.observe(e);
-    });
-
-    // Red de seguridad, y sólo eso. Hay entornos donde IntersectionObserver
-    // existe pero no dispara nunca: ahí la página quedaría en blanco. Se
-    // revisa si disparó ALGUNA vez; si sí, no se toca nada, porque destapar
-    // todo de golpe era justamente lo que borraba el efecto.
-    function red() {
-      if (disparo) return;
-      // Pestaña abierta de fondo: no disparó porque nadie la está mirando.
-      // Destapar ahora sería gastar la animación antes de que llegue.
-      if (document.hidden) {
-        document.addEventListener('visibilitychange', function v() {
-          document.removeEventListener('visibilitychange', v);
-          setTimeout(red, 900);
-        });
-        return;
-      }
-      ojo.disconnect();
-      piezas.forEach(function (e) { e.classList.add('visto'); });
-    }
-    setTimeout(red, 2500);
-  }
-  // Esperar a que la maqueta esté quieta antes de mirar qué se ve. Si se mide
-  // antes de que carguen las tipografías, todo está todavía apilado arriba, el
-  // observador cree que la página entera está a la vista y la marca vista de
-  // una: después, al bajar, no queda nada por animar. Era exactamente lo que
-  // pasaba. Si requestAnimationFrame no corre —entornos sin composición— esto
-  // no llega a ejecutarse y la página se ve entera, que es lo correcto: sin
-  // cuadros tampoco habría animación que mostrar.
-  function cuandoEsteQuieta() {
-    var fuentes = (document.fonts && document.fonts.ready) || Promise.resolve();
-    // Un temporizador y no requestAnimationFrame: en una pestaña abierta de
-    // fondo rAF no corre, y con rAF la animación no llegaba a instalarse nunca.
-    fuentes.then(function () { setTimeout(arrancar, 60); });
-  }
-  if (document.readyState === 'loading')
-    document.addEventListener('DOMContentLoaded', cuandoEsteQuieta);
-  else cuandoEsteQuieta();
-})();
-</script><!--/F5-->
-  <div class="wrap nav">
-    <a class="h" style="font-size: var(--small); letter-spacing: 0.2em;" href="/">VÍCTOR OLIVARI</a>
-    <div class="nav-links">
-      <a class="nl-br" href="/bienes-raices">Bienes Raíces</a>
-      <a class="nl-br" href="/tasaciones">Tasaciones</a>
-      <a class="nl-der" href="/servicios-juridicos">Servicios jurídicos</a>
-      <a class="nl-cap" href="/capacitaciones">Capacitaciones</a>
-      <a class="nl-men" href="/mentorias">Mentorías</a>
-      <a class="nl-mi" href="/sobre-mi">Sobre mí</a>
-      <a href="/contacto" style="font-weight: 600;">Contacto</a>
-    </div>
-    <div class="nav-burger">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#EAE6E0" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-    </div>
-  </div>
-
-  <div class="wrap phero">
-    <div>
-      <div class="lbl" style="color: var(--verde); margin-bottom: 20px;">Capacitaciones</div>
-      <h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">Formación práctica para el mercado inmobiliario</h1>
-      <p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Programas para profesionales que quieren actualizar criterio, herramientas y método. No es contenido genérico: cada programa parte de problemas reales de la operación, la valuación y el derecho inmobiliario.</p>
-    </div>
-    <div class="photo" style="aspect-ratio: 4 / 3;">16 · CLASE O CURSO</div>
-  </div>
-
-
-  <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
-    <div class="lbl" style="color: var(--verde); margin-bottom: 18px;">El primer curso</div>
-    <h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Empecé a enseñar porque me cansé de explicar lo mismo</h2>
-    <div class="relato"><p class="entrada">Las mismas preguntas volvían una y otra vez, de colegas, de clientes, de gente que recién arrancaba. En algún momento fue evidente que contestarlas de a una no alcanzaba.</p><p>Desde entonces di clases en la Universidad de la Cuenca del Plata como titular de Derechos Reales, diserté en congresos de Santa Fe, Misiones, Chaco y San Juan, y armé un catálogo propio que hoy cubre desde la primera tasación hasta la inteligencia artificial aplicada a la valuación.</p><div class="destacado">Enseño lo que hago. No al revés.</div><div class="completar"><div><span style="color: var(--ocre); display: flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><span class="lbl" style="color: var(--ocre);">Cómo fue la primera vez</span></div><ul><li><b>El primer curso.</b> Cuándo, dónde, cuántos alumnos. Si fueron cuatro, decí cuatro: es más memorable que un número redondo e inflado.</li><li><b>El miedo escénico.</b> Qué sentiste antes de entrar. Casi todos los que te lean van a haber sentido algo parecido alguna vez.</li><li><b>La pregunta que no supiste contestar.</b> Y qué hiciste después. Esto construye más autoridad que una lista de títulos.</li><li><b>Un alumno que te acordás.</b> Alguien que llegó perdido y terminó ejerciendo. Con su permiso, o sin nombre.</li><li><b>Por qué seguís dando clases.</b> Ya tenés la matrícula y el estudio: contá qué te devuelve el aula que no te da la oficina.</li></ul><p class="pista">Acá conviene el contraste antes/después: quién eras cuando empezaste a enseñar y qué sabés ahora. Quien se está por anotar a un curso necesita creer que el camino existe, y lo cree si ve que vos lo hiciste.</p></div></div>
-  </div></div>
-  <div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Programas</h2></div>
-  <div class="wrap" style="padding-bottom: 66px;">
-    <div class="cols3">
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h6a3 3 0 013 3v13a2.5 2.5 0 00-2.5-2.5H4z"/><path d="M20 4h-6a3 3 0 00-3 3v13a2.5 2.5 0 012.5-2.5H20z"/></svg></span><span class="h" style="font-size: var(--h3);">Tasación Inmobiliaria Elemental</span></div><p class="body" style="font-size: var(--small);">Los fundamentos del oficio: qué es tasar, para qué, con qué método y con qué límites.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="8" width="20" height="8" rx="1"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg></span><span class="h" style="font-size: var(--h3);">Seminario Práctico de Tasaciones Urbanas</span></div><p class="body" style="font-size: var(--small);">Práctica sobre casos reales: relevamiento, comparables y armado del informe.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/><path d="M10 21v-3h4v3"/></svg></span><span class="h" style="font-size: var(--h3);">Tasación Avanzada de Terrenos Urbanos</span></div><p class="body" style="font-size: var(--small);">Valuación de suelo: incidencia, aprovechamiento y variables de zona.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M5 20v-6M9 20v-9M13 20v-5M17 20v-8"/><path d="M3 11l6-5 4 3 8-5"/></svg></span><span class="h" style="font-size: var(--h3);">Tasaciones Rurales</span></div><p class="body" style="font-size: var(--small);">Método comparativo, relación precio-producción, rentabilidad y materiales de trabajo.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></span><span class="h" style="font-size: var(--h3);">Tasaciones Inmobiliarias con IA</span></div><p class="body" style="font-size: var(--small);">Big data e inteligencia artificial aplicados a la valuación: qué aceleran y qué nunca se delega.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></span><span class="h" style="font-size: var(--h3);">Alquileres con Inteligencia Artificial</span></div><p class="body" style="font-size: var(--small);">Gestión de locaciones asistida por IA, con validación profesional del resultado.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="4"/><path d="M11 11l9 9M17 17l2-2M14 14l2-2"/></svg></span><span class="h" style="font-size: var(--h3);">El ABC de los Alquileres</span></div><p class="body" style="font-size: var(--small);">Régimen vigente, contrato, garantías, ajustes y conflictos frecuentes.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l10-4 10 4-10 4z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span><span class="h" style="font-size: var(--h3);">El ABC Inmobiliario</span></div><p class="body" style="font-size: var(--small);">Puerta de entrada al oficio: cómo se estructura una operación de principio a fin.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h13l-3-3M21 16H8l3 3"/></svg></span><span class="h" style="font-size: var(--h3);">Etapas de la Compraventa Inmobiliaria</span></div><p class="body" style="font-size: var(--small);">De la reserva a la escritura: documentación, plazos, riesgos y responsabilidad.</p></div>
-      <div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1.5A4.5 4.5 0 017.5 14h3A4.5 4.5 0 0115 18.5V20"/><path d="M17 8.5a2.8 2.8 0 010 5M18 14h.5a4.5 4.5 0 014.5 4.5V20"/></svg></span><span class="h" style="font-size: var(--h3);">Administración de Consorcios</span></div><p class="body" style="font-size: var(--small);">Propiedad horizontal aplicada: expensas, asambleas, reglamento y gestión del conflicto.</p></div>
-    </div>
-    <p class="body" style="font-size: var(--small); margin-top: 20px;">Temarios completos, fechas, aranceles vigentes e inscripción en <a href="https://olivari-capacitaciones.com.ar" target="_blank" rel="noopener noreferrer" style="color: var(--verde);">olivari-capacitaciones.com.ar ↗</a>. Los precios no se publican acá para que no queden desactualizados.</p>
-  </div>
-
-  <div style="background: var(--deep);">
-    <div class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
-      <h2 class="h" style="font-size: var(--h2); margin-bottom: 26px;">Modalidades</h2>
-      <div class="cols3" style="margin-bottom: 28px;">
-        <div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></span><span class="h" style="font-size: var(--h3);">E-learning</span></div><p class="body" style="font-size: var(--small);">Cursado en línea con materiales descargables y ejercicios de aplicación.</p></div>
-        <div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1.5A4.5 4.5 0 017.5 14h3A4.5 4.5 0 0115 18.5V20"/><path d="M17 8.5a2.8 2.8 0 010 5M18 14h.5a4.5 4.5 0 014.5 4.5V20"/></svg></span><span class="h" style="font-size: var(--h3);">Presencial</span></div><p class="body" style="font-size: var(--small);">Encuentros y talleres con práctica sobre casos y documentación real.</p></div>
-        <div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l10-4 10 4-10 4z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span><span class="h" style="font-size: var(--h3);">Institucional</span></div><p class="body" style="font-size: var(--small);">Programas a medida para colegios, cámaras, empresas e instituciones.</p></div>
-      </div>
-      <div class="photo" style="aspect-ratio: 21 / 6;">17 · AULA O CURSADA</div>
-    </div>
-  </div>
-
-  <div class="wrap" style="padding-top: 66px; padding-bottom: 26px;"><h2 class="h" style="font-size: var(--h2);">Para quién</h2></div>
-  <div class="wrap" style="padding-bottom: 66px;">
-    <div class="chips">
-      <div class="chip">Corredores inmobiliarios y aspirantes</div>
-      <div class="chip">Abogados y profesionales del derecho inmobiliario</div>
-      <div class="chip">Arquitectos, ingenieros y agrimensores</div>
-      <div class="chip">Administradores de consorcios</div>
-      <div class="chip">Colegios, cámaras e instituciones</div>
-    </div>
-  </div>
-
-  <div style="background: var(--deep);">
-    <div class="wrap" style="padding-top: 62px; padding-bottom: 62px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
-      <div>
-        <h2 class="h" style="font-size: var(--h2); margin-bottom: 12px;">Próximos cursos</h2>
-        <p class="body" style="max-width: 520px;">Fechas, temarios e inscripción en la plataforma de Olivari Capacitaciones.</p>
-      </div>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <a class="b b-cap" href="https://olivari-capacitaciones.com.ar" target="_blank" rel="noopener noreferrer">Ver catálogo ↗</a>
-        <a class="b b-cap" href="/contacto">Capacitación institucional</a>
-      </div>
-    </div>
-  </div>
-  <div class="wrap"><div class="foot">
-    <a class="h" style="font-size: var(--small); letter-spacing: 0.2em; color: var(--ink);" href="/">VÍCTOR OLIVARI</a>
-    <div class="foot-links">
-      <a href="https://www.olivari.com.ar" target="_blank" rel="noopener noreferrer">olivari.com.ar ↗</a>
-      <span style="color: #5A6165;" title="Sin registro DNS todavía">olivari-derecho.com.ar · en construcción</span>
-      <a href="https://olivari-capacitaciones.com.ar" target="_blank" rel="noopener noreferrer">olivari-capacitaciones.com.ar ↗</a>
-    </div>
-    <a href="/privacidad">Política de privacidad</a>
-  </div></div>
-
-
-
-
-
-
-
-
-
-
-<!--F5--><a class="cta-movil" href="https://wa.me/5493624044118" target="_blank" rel="noopener noreferrer" style="background: var(--verde); color: #FFFFFF;" aria-label="Escribir por WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Escribir por WhatsApp</span></a><!--/F5-->
+<div class="wrap phero">
+<div>
+<div class="lbl" style="color: var(--verde); margin-bottom: 20px;">Capacitaciones</div>
+<h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">La práctica también se aprende.</h1>
+<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Formación en tasaciones, derecho inmobiliario, consorcios y tecnología. Método y herramientas para el trabajo cotidiano.</p>
 </div>
+<div class="ph" style="aspect-ratio: 4 / 3;"><img width="617" height="1100" srcset="/fotos/2015-08_curso-consorcios-360.webp 360w, /fotos/2015-08_curso-consorcios.webp 617w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari dictando el curso de administración de consorcios" decoding="async" src="/fotos/2015-08_curso-consorcios.webp"/></div>
+</div>
+<div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
+<div class="lbl" style="color: var(--verde); margin-bottom: 18px;">El primer curso</div>
+<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Compartir el método de trabajo.</h2>
+<div class="relato"><p class="entrada">Los programas parten de preguntas que aparecen en la práctica profesional.</p><p>Casos, documentación y ejercicios permiten conectar los conceptos con las decisiones del trabajo cotidiano. La tecnología se incorpora como herramienta de apoyo al análisis.</p><div class="destacado">Aprender para llevarlo a la práctica.</div></div>
+</div></div>
+<div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Programas</h2></div>
+<div class="wrap" style="padding-bottom: 66px;">
+<div class="programs"><details class="program-group" open=""><summary><span class="h">Valuación inmobiliaria</span></summary><div class="cols3"><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><path d="M4 4h6a3 3 0 013 3v13a2.5 2.5 0 00-2.5-2.5H4z"></path><path d="M20 4h-6a3 3 0 00-3 3v13a2.5 2.5 0 012.5-2.5H20z"></path></svg></span><span class="h" style="font-size: var(--h3);">Tasación Inmobiliaria Elemental</span></div><p class="body" style="font-size: var(--small);">Los fundamentos del oficio: qué es tasar, para qué, con qué método y con qué límites.</p></div><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><rect height="8" rx="1" width="20" x="2" y="8"></rect><path d="M7 8v3M11 8v4M15 8v3M19 8v4"></path></svg></span><span class="h" style="font-size: var(--h3);">Seminario Práctico de Tasaciones Urbanas</span></div><p class="body" style="font-size: var(--small);">Práctica sobre casos reales: relevamiento, comparables y armado del informe.</p></div><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><rect height="18" rx="1" width="16" x="4" y="3"></rect><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"></path><path d="M10 21v-3h4v3"></path></svg></span><span class="h" style="font-size: var(--h3);">Tasación Avanzada de Terrenos Urbanos</span></div><p class="body" style="font-size: var(--small);">Valuación de suelo: incidencia, aprovechamiento y variables de zona.</p></div><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><path d="M3 20h18M5 20v-6M9 20v-9M13 20v-5M17 20v-8"></path><path d="M3 11l6-5 4 3 8-5"></path></svg></span><span class="h" style="font-size: var(--h3);">Tasaciones Rurales</span></div><p class="body" style="font-size: var(--small);">Método comparativo, relación precio-producción, rentabilidad y materiales de trabajo.</p></div></div></details><details class="program-group"><summary><span class="h">Tecnología aplicada</span></summary><div class="cols3"><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><rect height="10" rx="1.5" width="10" x="7" y="7"></rect><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"></path></svg></span><span class="h" style="font-size: var(--h3);">Tasaciones Inmobiliarias con IA</span></div><p class="body" style="font-size: var(--small);">Big data e inteligencia artificial aplicados a la valuación: qué aceleran y qué nunca se delega.</p></div><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><rect height="10" rx="1.5" width="10" x="7" y="7"></rect><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"></path></svg></span><span class="h" style="font-size: var(--h3);">Alquileres con Inteligencia Artificial</span></div><p class="body" style="font-size: var(--small);">Gestión de locaciones asistida por IA, con validación profesional del resultado.</p></div></div></details><details class="program-group"><summary><span class="h">Operaciones y gestión</span></summary><div class="cols3"><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><circle cx="8" cy="8" r="4"></circle><path d="M11 11l9 9M17 17l2-2M14 14l2-2"></path></svg></span><span class="h" style="font-size: var(--h3);">El ABC de los Alquileres</span></div><p class="body" style="font-size: var(--small);">Régimen vigente, contrato, garantías, ajustes y conflictos frecuentes.</p></div><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><path d="M2 8l10-4 10 4-10 4z"></path><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path></svg></span><span class="h" style="font-size: var(--h3);">El ABC Inmobiliario</span></div><p class="body" style="font-size: var(--small);">Puerta de entrada al oficio: cómo se estructura una operación de principio a fin.</p></div><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><path d="M3 8h13l-3-3M21 16H8l3 3"></path></svg></span><span class="h" style="font-size: var(--h3);">Etapas de la Compraventa Inmobiliaria</span></div><p class="body" style="font-size: var(--small);">De la reserva a la escritura: documentación, plazos, riesgos y responsabilidad.</p></div><div class="card" style="border-top: 3px solid var(--verde);"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1.5A4.5 4.5 0 017.5 14h3A4.5 4.5 0 0115 18.5V20"></path><path d="M17 8.5a2.8 2.8 0 010 5M18 14h.5a4.5 4.5 0 014.5 4.5V20"></path></svg></span><span class="h" style="font-size: var(--h3);">Administración de Consorcios</span></div><p class="body" style="font-size: var(--small);">Propiedad horizontal aplicada: expensas, asambleas, reglamento y gestión del conflicto.</p></div></div></details></div>
+<p class="body" style="font-size: var(--small); margin-top: 20px;">Temarios completos, fechas, aranceles vigentes e inscripción en <a href="https://olivari-capacitaciones.com.ar" rel="noopener noreferrer" style="color: var(--verde);" target="_blank">olivari-capacitaciones.com.ar ↗</a>. Los precios no se publican acá para que no queden desactualizados.</p>
+</div>
+<div style="background: var(--deep);">
+<div class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
+<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px;">Modalidades</h2>
+<div class="cols3" style="margin-bottom: 28px;">
+<div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><rect height="13" rx="1.5" width="20" x="2" y="4"></rect><path d="M8 21h8M12 17v4"></path></svg></span><span class="h" style="font-size: var(--h3);">E-learning</span></div><p class="body" style="font-size: var(--small);">Cursado en línea con materiales descargables y ejercicios de aplicación.</p></div>
+<div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1.5A4.5 4.5 0 017.5 14h3A4.5 4.5 0 0115 18.5V20"></path><path d="M17 8.5a2.8 2.8 0 010 5M18 14h.5a4.5 4.5 0 014.5 4.5V20"></path></svg></span><span class="h" style="font-size: var(--h3);">Presencial</span></div><p class="body" style="font-size: var(--small);">Encuentros y talleres con práctica sobre casos y documentación real.</p></div>
+<div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><path d="M2 8l10-4 10 4-10 4z"></path><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path></svg></span><span class="h" style="font-size: var(--h3);">Institucional</span></div><p class="body" style="font-size: var(--small);">Programas a medida para colegios, cámaras, empresas e instituciones.</p></div>
+</div>
+<div class="ph" style="aspect-ratio: 21 / 6;"><img loading="lazy" decoding="async" width="1100" height="658" srcset="/fotos/2015-10_aula-taller-360.webp 360w, /fotos/2015-10_aula-taller-640.webp 640w, /fotos/2015-10_aula-taller-960.webp 960w, /fotos/2015-10_aula-taller.webp 1100w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Aula completa durante un taller de tasaciones" decoding="async" src="/fotos/2015-10_aula-taller.webp"/></div>
+</div>
+</div>
+<div class="wrap" style="padding-top: 66px; padding-bottom: 26px;"><h2 class="h" style="font-size: var(--h2);">Para quién</h2></div>
+<div class="wrap" style="padding-bottom: 66px;">
+<div class="chips">
+<div class="chip">Corredores inmobiliarios y aspirantes</div>
+<div class="chip">Abogados y profesionales del derecho inmobiliario</div>
+<div class="chip">Arquitectos, ingenieros y agrimensores</div>
+<div class="chip">Administradores de consorcios</div>
+<div class="chip">Colegios, cámaras e instituciones</div>
+</div>
+</div>
+<div style="background: var(--deep);">
+<div class="wrap" style="padding-top: 62px; padding-bottom: 62px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
+<div>
+<h2 class="h" style="font-size: var(--h2); margin-bottom: 12px;">Próximos cursos</h2>
+<p class="body" style="max-width: 520px;">Fechas, temarios e inscripción en la plataforma de Olivari Capacitaciones.</p>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+<a class="b b-cap" href="https://olivari-capacitaciones.com.ar" rel="noopener noreferrer" target="_blank">Ver catálogo ↗</a>
+<a class="b b-cap" href="/contacto">Capacitación institucional</a>
+</div>
+</div>
+</div>
+
+
+</main><div class="wrap"><div class="foot">
+<a class="h" href="/" style="font-size: var(--small); letter-spacing: 0.2em; color: var(--ink);">VÍCTOR OLIVARI</a>
+<div class="foot-links">
+<a href="https://www.olivari.com.ar" rel="noopener noreferrer" target="_blank">olivari.com.ar ↗</a>
+
+<a href="https://olivari-capacitaciones.com.ar" rel="noopener noreferrer" target="_blank">olivari-capacitaciones.com.ar ↗</a>
+</div>
+<a href="/privacidad">Política de privacidad</a>
+</div></div><!--F5--><script>
+(function () {
+  function start() {
+    document.querySelectorAll('.mobile-menu').forEach(function (menu) {
+      if (menu.dataset.ready) return;
+      menu.dataset.ready = 'true';
+      menu.addEventListener('click', function (event) {
+        if (event.target.closest('a')) menu.open = false;
+      });
+      menu.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          menu.open = false;
+          menu.querySelector('summary').focus();
+        }
+      });
+      document.addEventListener('click', function (event) {
+        if (!menu.contains(event.target)) menu.open = false;
+      });
+      var desktop = window.matchMedia('(min-width: 1100px)');
+      function closeOnDesktop() { if (desktop.matches) menu.open = false; }
+      if (desktop.addEventListener) desktop.addEventListener('change', closeOnDesktop);
+    });
+    document.querySelectorAll('.contact-area').forEach(function (area) {
+      if (area.dataset.ready) return;
+      area.dataset.ready = 'true';
+      area.addEventListener('toggle', function () {
+        if (!area.open) return;
+        area.parentElement.querySelectorAll('.contact-area').forEach(function (other) {
+          if (other !== area) other.open = false;
+        });
+      });
+    });
+    if (!('IntersectionObserver' in window) || !Element.prototype.animate) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduced.matches) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        if (reduced.matches) return;
+        var mobile = window.matchMedia('(max-width: 699px)').matches;
+        entry.target.animate([
+          { opacity: .45, transform: 'translateY(' + (mobile ? 6 : 10) + 'px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: mobile ? 300 : 420, easing: 'cubic-bezier(.22,.61,.36,1)' });
+      });
+    }, { threshold: .08 });
+    document.querySelectorAll('.section-head, .unit, .gallery figure, .tray-row, .practice-list, .program-group').forEach(function (item) {
+      if (item.dataset.observed) return;
+      item.dataset.observed = 'true';
+      if (item.getBoundingClientRect().top >= window.innerHeight) observer.observe(item);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
+  else start();
+})();
+
+</script><!--/F5--></div>
 </body>
 </html>
