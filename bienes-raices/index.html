@@ -359,6 +359,13 @@ body { margin: 0; background: #131618; }
 .page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
 .page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
 .page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+/* El recorrido reúne fotos de formatos muy diferentes; el fondo unifica la serie
+   sin recortar personas ni documentos importantes. */
+.page .journey-carousel { margin-top: 10px; }
+.page .journey-carousel .carousel-track { gap: 16px; }
+.page .journey-carousel .carousel-track figure { width: min(82vw, 560px); }
+.page .journey-carousel .carousel-track img { aspect-ratio: 3 / 2; filter: saturate(.88); }
+.page .journey-carousel .carousel-track figcaption { min-height: 2.7em; padding: 12px 2px 0; color: var(--ink); }
 .page .story-more { max-width: 66ch; margin-top: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .page .story-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; cursor: pointer; color: var(--ink); font-size: .9375rem; font-weight: 600; letter-spacing: .04em; list-style: none; }
 .page .story-more > summary::-webkit-details-marker { display: none; }
@@ -493,7 +500,9 @@ body { margin: 0; background: #131618; }
       if (!canRun()) { last = 0; return; }
       if (last && period > 0) {
         // Acumulador decimal: también avanza en navegadores que redondean scrollLeft.
-        position = (position + Math.min(now - last, 64) * .025) % period;
+        // Cada carrusel puede ajustar su ritmo sin afectar los demás.
+        // El recorrido usa una cadencia más ágil, pero conserva el control de pausa.
+        position = (position + Math.min(now - last, 64) * Number(root.dataset.carouselSpeed || .025)) % period;
         viewport.scrollLeft = position;
       }
       last = now;
@@ -545,7 +554,7 @@ body { margin: 0; background: #131618; }
     measure(); update();
   }
   function start() {
-    document.querySelectorAll('[data-course-carousel]').forEach(initCarousel);
+    document.querySelectorAll('[data-course-carousel], [data-journey-carousel]').forEach(initCarousel);
     // La guía siempre ofrece Inicio; Volver solo aparece con procedencia interna.
     var previous;
     try { previous = new URL(document.referrer); } catch (_) {}
