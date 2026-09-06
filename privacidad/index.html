@@ -247,6 +247,10 @@ body { margin: 0; background: #131618; }
 .page .relato { max-width: 66ch; }
 .page .relato p, .page .relato .entrada { font-size: var(--body); line-height: 1.75; }
 .page .destacado { font: 400 var(--h3)/1.5 Spectral, Georgia, serif; border-left: 1px solid var(--ocre); margin: 24px 0; }
+.page .story-pill { display: inline-flex; align-items: center; max-width: 100%; margin: 6px 0 22px;
+  padding: 8px 13px; border: 1px solid color-mix(in srgb, var(--ocre) 58%, transparent);
+  border-radius: 999px; color: var(--ink); background: rgba(201,174,125,.08);
+  font-size: .875rem; font-weight: 600; line-height: 1.35; }
 .page .cols2, .page .cols3 { display: grid; grid-template-columns: minmax(0,1fr); gap: 18px; }
 .page .cols2 > *, .page .cols3 > *, .page .row > *, .page .tray-row > * { min-width: 0; }
 .page .card { padding: 24px; border-top-width: 1px !important; }
