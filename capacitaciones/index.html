@@ -337,7 +337,30 @@ body { margin: 0; background: #131618; }
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+/* Fotos de las áreas: se conserva el encuadre original, también en celular. */
+.page .phero .area-portrait { max-height: none; }
+.page .phero .area-portrait-vertical { aspect-ratio: 3 / 4 !important; width: 100%; max-width: 390px; justify-self: center; }
+.page .area-portrait img { object-fit: contain; filter: none; }
+.page .course-carousel { min-width: 0; border-block: 1px solid var(--line); }
+.page .carousel-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px; }
+.page .carousel-heading .lbl { margin-bottom: 12px; }
+.page .carousel-heading .h { font-size: var(--h2); }
+.page .carousel-controls { display: flex; gap: 8px; }
+.page .carousel-controls[hidden] { display: none; }
+.page .carousel-controls button { min-width: 48px; min-height: 48px; padding: 10px 15px; border: 1px solid var(--line); border-radius: 3px; background: var(--panel); color: var(--ink); font: inherit; font-size: .875rem; cursor: pointer; }
+.page .carousel-controls button:hover { border-color: var(--verde); }
+.page .carousel-controls button:disabled { cursor: default; color: var(--muted); }
+.page .carousel-help { color: var(--muted); font-size: .875rem; line-height: 1.5; margin-block: 18px 22px; }
+.page .carousel-viewport { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--verde) var(--panel); scroll-behavior: auto; padding-bottom: 12px; }
+.page .carousel-track { display: flex; gap: 20px; width: max-content; }
+.page .carousel-track figure { flex: none; width: min(76vw, 480px); margin: 0; }
+.page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
+.page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
+.page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
 @media print {
+  .page .carousel-controls, .page .carousel-track [aria-hidden="true"] { display: none; }
+  .page .carousel-viewport { overflow: visible; }
+  .page .carousel-track { width: auto; flex-wrap: wrap; }
   .page .site-header, .page .skip-link, .page .cta-movil { display: none !important; }
   .page .ph img { filter: none; }
 }
@@ -355,8 +378,36 @@ body { margin: 0; background: #131618; }
 <h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">La práctica también se aprende.</h1>
 <p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Formación en tasaciones, derecho inmobiliario, consorcios y tecnología. Método y herramientas para el trabajo cotidiano.</p>
 </div>
-<div class="ph" style="aspect-ratio: 4 / 3;"><img width="617" height="1100" srcset="/fotos/2015-08_curso-consorcios-360.webp 360w, /fotos/2015-08_curso-consorcios.webp 617w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari dictando el curso de administración de consorcios" decoding="async" src="/fotos/2015-08_curso-consorcios.webp"/></div>
+<div class="ph area-portrait area-portrait-vertical"><img width="1050" height="1400" srcset="/fotos/cursos-aula-curso-6-360.webp 360w, /fotos/cursos-aula-curso-6-640.webp 640w, /fotos/cursos-aula-curso-6-960.webp 960w, /fotos/cursos-aula-curso-6.webp 1050w" sizes="(max-width: 433px) calc(100vw - 44px), 480px" alt="Víctor Olivari dictando una capacitación entre los asistentes del aula" decoding="async" src="/fotos/cursos-aula-curso-6.webp"/></div>
 </div>
+<section class="wrap course-carousel section" aria-labelledby="cursos-fotos-titulo" aria-roledescription="carrusel" data-course-carousel>
+<div class="carousel-heading">
+<div><p class="lbl" style="color: var(--verde);">Encuentros y aprendizaje</p><h2 class="h" id="cursos-fotos-titulo">La formación, en imágenes.</h2></div>
+<div class="carousel-controls" hidden>
+<button type="button" data-carousel-prev aria-label="Foto anterior" aria-controls="cursos-fotos">←</button>
+<button type="button" data-carousel-toggle aria-controls="cursos-fotos">Pausar</button>
+<button type="button" data-carousel-next aria-label="Foto siguiente" aria-controls="cursos-fotos">→</button>
+</div>
+</div>
+<p class="carousel-help" id="cursos-fotos-ayuda">Deslizá para recorrer las fotos de cursos, encuentros y conferencias.</p>
+<div class="carousel-viewport" id="cursos-fotos" tabindex="0" role="group" aria-label="Fotos de capacitaciones" aria-describedby="cursos-fotos-ayuda">
+<div class="carousel-track">
+<figure data-category="grupal"><img loading="lazy" decoding="async" width="1400" height="669" srcset="/fotos/cursos-colegio-martilleros-360.webp 360w, /fotos/cursos-colegio-martilleros-640.webp 640w, /fotos/cursos-colegio-martilleros-960.webp 960w, /fotos/cursos-colegio-martilleros.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-colegio-martilleros.webp" alt="Foto grupal con los participantes de una capacitación en el Colegio de Martilleros" decoding="async"/><figcaption>Encuentro en el Colegio de Martilleros</figcaption></figure>
+<figure data-category="grupal"><img loading="lazy" decoding="async" width="1400" height="1050" srcset="/fotos/cursos-grupo-1-360.webp 360w, /fotos/cursos-grupo-1-640.webp 640w, /fotos/cursos-grupo-1-960.webp 960w, /fotos/cursos-grupo-1.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-grupo-1.webp" alt="Participantes reunidos al finalizar un curso en el aula" decoding="async"/><figcaption>Aprendizaje compartido</figcaption></figure>
+<figure data-category="grupal"><img loading="lazy" decoding="async" width="1400" height="1050" srcset="/fotos/cursos-grupo-uncaus-360.webp 360w, /fotos/cursos-grupo-uncaus-640.webp 640w, /fotos/cursos-grupo-uncaus-960.webp 960w, /fotos/cursos-grupo-uncaus.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-grupo-uncaus.webp" alt="Foto colectiva de los participantes sobre el escenario de la UNCAUS" decoding="async"/><figcaption>Encuentro en la UNCAUS</figcaption></figure>
+<figure data-category="grupal"><img loading="lazy" decoding="async" width="1400" height="1050" srcset="/fotos/cursos-grupo-2-360.webp 360w, /fotos/cursos-grupo-2-640.webp 640w, /fotos/cursos-grupo-2-960.webp 960w, /fotos/cursos-grupo-2.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-grupo-2.webp" alt="Grupo de asistentes con sus certificados al finalizar una capacitación" decoding="async"/><figcaption>Cierre de una jornada de formación</figcaption></figure>
+<figure data-category="colectiva"><img loading="lazy" decoding="async" width="1400" height="1050" srcset="/fotos/cursos-camara-inmobiliaria-360.webp 360w, /fotos/cursos-camara-inmobiliaria-640.webp 640w, /fotos/cursos-camara-inmobiliaria-960.webp 960w, /fotos/cursos-camara-inmobiliaria.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-camara-inmobiliaria.webp" alt="Participantes de un curso virtual con la Cámara Inmobiliaria Argentina" decoding="async"/><figcaption>Formación con la Cámara Inmobiliaria Argentina</figcaption></figure>
+<figure data-category="colectiva"><img loading="lazy" decoding="async" width="1400" height="1050" srcset="/fotos/cursos-aula-2-360.webp 360w, /fotos/cursos-aula-2-640.webp 640w, /fotos/cursos-aula-2-960.webp 960w, /fotos/cursos-aula-2.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-aula-2.webp" alt="Víctor Olivari expone frente a los asistentes de un taller presencial" decoding="async"/><figcaption>Taller presencial</figcaption></figure>
+<figure data-category="colectiva"><img loading="lazy" decoding="async" width="1400" height="1050" srcset="/fotos/cursos-aula-3-360.webp 360w, /fotos/cursos-aula-3-640.webp 640w, /fotos/cursos-aula-3-960.webp 960w, /fotos/cursos-aula-3.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-aula-3.webp" alt="Auditorio durante una jornada sobre aspectos inmobiliarios del Código Civil y Comercial" decoding="async"/><figcaption>Jornada de capacitación inmobiliaria</figcaption></figure>
+<figure data-category="colectiva"><img loading="lazy" decoding="async" width="1400" height="1050" srcset="/fotos/cursos-aula-4-360.webp 360w, /fotos/cursos-aula-4-640.webp 640w, /fotos/cursos-aula-4-960.webp 960w, /fotos/cursos-aula-4.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-aula-4.webp" alt="Participantes y docente trabajando en un aula durante una capacitación" decoding="async"/><figcaption>Intercambio y trabajo en el aula</figcaption></figure>
+<figure data-category="colectiva"><img loading="lazy" decoding="async" width="1050" height="1400" srcset="/fotos/cursos-aula-curso-6-360.webp 360w, /fotos/cursos-aula-curso-6-640.webp 640w, /fotos/cursos-aula-curso-6-960.webp 960w, /fotos/cursos-aula-curso-6.webp 1050w" sizes="(max-width: 433px) calc(100vw - 44px), 480px" src="/fotos/cursos-aula-curso-6.webp" alt="Víctor Olivari recorre el aula entre los asistentes de una capacitación" decoding="async"/><figcaption>El método, llevado a la práctica</figcaption></figure>
+<figure data-category="individual"><img loading="lazy" decoding="async" width="1050" height="1400" srcset="/fotos/cursos-alquileres-7-360.webp 360w, /fotos/cursos-alquileres-7-640.webp 640w, /fotos/cursos-alquileres-7-960.webp 960w, /fotos/cursos-alquileres-7.webp 1050w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-alquileres-7.webp" alt="Víctor Olivari expone sobre alquileres con un micrófono" decoding="async"/><figcaption>Capacitación sobre alquileres</figcaption></figure>
+<figure data-category="individual"><img loading="lazy" decoding="async" width="1244" height="949" srcset="/fotos/cursos-congreso-martilleros-360.webp 360w, /fotos/cursos-congreso-martilleros-640.webp 640w, /fotos/cursos-congreso-martilleros-960.webp 960w, /fotos/cursos-congreso-martilleros.webp 1244w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-congreso-martilleros.webp" alt="Víctor Olivari como expositor en un Congreso de Martilleros" decoding="async"/><figcaption>Congreso de Martilleros</figcaption></figure>
+<figure data-category="individual"><img loading="lazy" decoding="async" width="1400" height="788" srcset="/fotos/cursos-exposicion-5-360.webp 360w, /fotos/cursos-exposicion-5-640.webp 640w, /fotos/cursos-exposicion-5-960.webp 960w, /fotos/cursos-exposicion-5.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-exposicion-5.webp" alt="Víctor Olivari con micrófono durante una jornada de formación profesional" decoding="async"/><figcaption>Encuentro de formación profesional</figcaption></figure>
+<figure data-category="individual"><img loading="lazy" decoding="async" width="1400" height="839" srcset="/fotos/cursos-practica-alquileres-360.webp 360w, /fotos/cursos-practica-alquileres-640.webp 640w, /fotos/cursos-practica-alquileres-960.webp 960w, /fotos/cursos-practica-alquileres.webp 1400w" sizes="(max-width: 631px) 76vw, 480px" src="/fotos/cursos-practica-alquileres.webp" alt="Detalle de un participante resolviendo ejercicios con planillas y una calculadora" decoding="async"/><figcaption>Ejercicios y herramientas de trabajo</figcaption></figure>
+</div>
+</div>
+</section>
 <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
 <div class="lbl" style="color: var(--verde); margin-bottom: 18px;">El primer curso</div>
 <h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Compartir el método de trabajo.</h2>
@@ -375,7 +426,6 @@ body { margin: 0; background: #131618; }
 <div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1.5A4.5 4.5 0 017.5 14h3A4.5 4.5 0 0115 18.5V20"></path><path d="M17 8.5a2.8 2.8 0 010 5M18 14h.5a4.5 4.5 0 014.5 4.5V20"></path></svg></span><span class="h" style="font-size: var(--h3);">Presencial</span></div><p class="body" style="font-size: var(--small);">Encuentros y talleres con práctica sobre casos y documentación real.</p></div>
 <div class="card"><div style="display: flex; align-items: center; gap: 11px;"><span style="color: var(--verde); display: flex;"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="22"><path d="M2 8l10-4 10 4-10 4z"></path><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path></svg></span><span class="h" style="font-size: var(--h3);">Institucional</span></div><p class="body" style="font-size: var(--small);">Programas a medida para colegios, cámaras, empresas e instituciones.</p></div>
 </div>
-<div class="ph" style="aspect-ratio: 21 / 6;"><img loading="lazy" decoding="async" width="1100" height="658" srcset="/fotos/2015-10_aula-taller-360.webp 360w, /fotos/2015-10_aula-taller-640.webp 640w, /fotos/2015-10_aula-taller-960.webp 960w, /fotos/2015-10_aula-taller.webp 1100w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Aula completa durante un taller de tasaciones" decoding="async" src="/fotos/2015-10_aula-taller.webp"/></div>
 </div>
 </div>
 <div class="wrap" style="padding-top: 66px; padding-bottom: 26px;"><h2 class="h" style="font-size: var(--h2);">Para quién</h2></div>
@@ -412,7 +462,86 @@ body { margin: 0; background: #131618; }
 <a href="/privacidad">Política de privacidad</a>
 </div></div><!--F5--><script>
 (function () {
+  function initCarousel(root) {
+    if (root.dataset.ready) return;
+    root.dataset.ready = 'true';
+    var viewport = root.querySelector('.carousel-viewport');
+    var track = root.querySelector('.carousel-track');
+    var items = Array.from(track.children);
+    var toggle = root.querySelector('[data-carousel-toggle]');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var paused = reduced.matches, visible = false, hovering = false, focused = false;
+    var frame = 0, last = 0, position = 0, period = 0;
+    // Segunda vuelta visual, excluida del lector de pantalla. Reutiliza las
+    // mismas URL optimizadas: el navegador no descarga cada foto dos veces.
+    items.forEach(function (item) {
+      var clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+    function measure() {
+      period = track.children[items.length].offsetLeft - items[0].offsetLeft;
+      position = viewport.scrollLeft;
+    }
+    function canRun() { return visible && !paused && !reduced.matches && !hovering && !focused && !document.hidden; }
+    function tick(now) {
+      frame = 0;
+      if (!canRun()) { last = 0; return; }
+      if (last && period > 0) {
+        // Acumulador decimal: también avanza en navegadores que redondean scrollLeft.
+        position = (position + Math.min(now - last, 64) * .025) % period;
+        viewport.scrollLeft = position;
+      }
+      last = now;
+      frame = requestAnimationFrame(tick);
+    }
+    function update() {
+      toggle.textContent = reduced.matches ? 'Movimiento reducido' : paused ? 'Reproducir' : 'Pausar';
+      toggle.disabled = reduced.matches;
+      toggle.setAttribute('aria-label', reduced.matches ? 'Movimiento automático desactivado' : paused ? 'Reproducir carrusel' : 'Pausar carrusel');
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0; last = 0; position = viewport.scrollLeft;
+      if (canRun()) frame = requestAnimationFrame(tick);
+    }
+    function manual() { paused = true; update(); }
+    toggle.addEventListener('click', function () { paused = !paused; update(); });
+    function step(direction) {
+      manual();
+      measure();
+      var stride = items[1].offsetLeft - items[0].offsetLeft;
+      var index = direction > 0 ? Math.floor(viewport.scrollLeft / stride + .01) + 1 : Math.ceil(viewport.scrollLeft / stride - .01) - 1;
+      viewport.scrollLeft = ((index * stride) % period + period) % period;
+      position = viewport.scrollLeft;
+    }
+    root.querySelector('[data-carousel-prev]').addEventListener('click', function () { step(-1); });
+    root.querySelector('[data-carousel-next]').addEventListener('click', function () { step(1); });
+    viewport.addEventListener('pointerdown', manual, { passive: true });
+    viewport.addEventListener('wheel', manual, { passive: true });
+    viewport.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault(); step(event.key === 'ArrowRight' ? 1 : -1);
+      } else if (event.key === 'Home' || event.key === 'End') {
+        event.preventDefault(); manual(); measure();
+        viewport.scrollLeft = event.key === 'Home' ? 0 : items[items.length - 1].offsetLeft - items[0].offsetLeft;
+      }
+    });
+    viewport.addEventListener('pointerenter', function (event) { if (event.pointerType === 'mouse') { hovering = true; update(); } });
+    viewport.addEventListener('pointerleave', function () { hovering = false; update(); });
+    viewport.addEventListener('focusin', function () { focused = true; update(); });
+    viewport.addEventListener('focusout', function () { focused = false; update(); });
+    document.addEventListener('visibilitychange', update);
+    window.addEventListener('resize', function () { measure(); update(); });
+    reduced.addEventListener('change', function () { paused = true; update(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting; measure(); update();
+      }, { threshold: .1 }).observe(viewport);
+    }
+    root.querySelector('.carousel-controls').hidden = false;
+    measure(); update();
+  }
   function start() {
+    document.querySelectorAll('[data-course-carousel]').forEach(initCarousel);
     // La guía siempre ofrece Inicio; Volver solo aparece con procedencia interna.
     var previous;
     try { previous = new URL(document.referrer); } catch (_) {}

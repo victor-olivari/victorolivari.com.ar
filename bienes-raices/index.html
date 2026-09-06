@@ -335,7 +335,30 @@ body { margin: 0; background: #131618; }
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+/* Fotos de las áreas: se conserva el encuadre original, también en celular. */
+.page .phero .area-portrait { max-height: none; }
+.page .phero .area-portrait-vertical { aspect-ratio: 3 / 4 !important; width: 100%; max-width: 390px; justify-self: center; }
+.page .area-portrait img { object-fit: contain; filter: none; }
+.page .course-carousel { min-width: 0; border-block: 1px solid var(--line); }
+.page .carousel-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px; }
+.page .carousel-heading .lbl { margin-bottom: 12px; }
+.page .carousel-heading .h { font-size: var(--h2); }
+.page .carousel-controls { display: flex; gap: 8px; }
+.page .carousel-controls[hidden] { display: none; }
+.page .carousel-controls button { min-width: 48px; min-height: 48px; padding: 10px 15px; border: 1px solid var(--line); border-radius: 3px; background: var(--panel); color: var(--ink); font: inherit; font-size: .875rem; cursor: pointer; }
+.page .carousel-controls button:hover { border-color: var(--verde); }
+.page .carousel-controls button:disabled { cursor: default; color: var(--muted); }
+.page .carousel-help { color: var(--muted); font-size: .875rem; line-height: 1.5; margin-block: 18px 22px; }
+.page .carousel-viewport { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--verde) var(--panel); scroll-behavior: auto; padding-bottom: 12px; }
+.page .carousel-track { display: flex; gap: 20px; width: max-content; }
+.page .carousel-track figure { flex: none; width: min(76vw, 480px); margin: 0; }
+.page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
+.page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
+.page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
 @media print {
+  .page .carousel-controls, .page .carousel-track [aria-hidden="true"] { display: none; }
+  .page .carousel-viewport { overflow: visible; }
+  .page .carousel-track { width: auto; flex-wrap: wrap; }
   .page .site-header, .page .skip-link, .page .cta-movil { display: none !important; }
   .page .ph img { filter: none; }
 }
@@ -353,7 +376,7 @@ body { margin: 0; background: #131618; }
 <h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">Bienes raíces, con fundamento.</h1>
 <p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Comercialización, locaciones y tasaciones. Acompaño decisiones sobre inmuebles con análisis de mercado y atención a la documentación.</p>
 </div>
-<div class="ph" style="aspect-ratio: 4 / 3;"><img width="900" height="539" srcset="/fotos/2015-10_planilla-tasacion-360.webp 360w, /fotos/2015-10_planilla-tasacion-640.webp 640w, /fotos/2015-10_planilla-tasacion.webp 900w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Planilla y calculadora utilizadas en una tasación" decoding="async" src="/fotos/2015-10_planilla-tasacion.webp"/></div>
+<div class="ph area-portrait"><img width="1400" height="1050" srcset="/fotos/areas-bienes-raices-360.webp 360w, /fotos/areas-bienes-raices-640.webp 640w, /fotos/areas-bienes-raices-960.webp 960w, /fotos/areas-bienes-raices.webp 1400w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari en la oficina de Olivari Bienes Raíces" decoding="async" src="/fotos/areas-bienes-raices.webp"/></div>
 </div>
 <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
 <div class="lbl" style="color: var(--rojo); margin-bottom: 18px;">Por qué trabajo así</div>
@@ -426,7 +449,86 @@ body { margin: 0; background: #131618; }
 <a href="/privacidad">Política de privacidad</a>
 </div></div><!--F5--><script>
 (function () {
+  function initCarousel(root) {
+    if (root.dataset.ready) return;
+    root.dataset.ready = 'true';
+    var viewport = root.querySelector('.carousel-viewport');
+    var track = root.querySelector('.carousel-track');
+    var items = Array.from(track.children);
+    var toggle = root.querySelector('[data-carousel-toggle]');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var paused = reduced.matches, visible = false, hovering = false, focused = false;
+    var frame = 0, last = 0, position = 0, period = 0;
+    // Segunda vuelta visual, excluida del lector de pantalla. Reutiliza las
+    // mismas URL optimizadas: el navegador no descarga cada foto dos veces.
+    items.forEach(function (item) {
+      var clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+    function measure() {
+      period = track.children[items.length].offsetLeft - items[0].offsetLeft;
+      position = viewport.scrollLeft;
+    }
+    function canRun() { return visible && !paused && !reduced.matches && !hovering && !focused && !document.hidden; }
+    function tick(now) {
+      frame = 0;
+      if (!canRun()) { last = 0; return; }
+      if (last && period > 0) {
+        // Acumulador decimal: también avanza en navegadores que redondean scrollLeft.
+        position = (position + Math.min(now - last, 64) * .025) % period;
+        viewport.scrollLeft = position;
+      }
+      last = now;
+      frame = requestAnimationFrame(tick);
+    }
+    function update() {
+      toggle.textContent = reduced.matches ? 'Movimiento reducido' : paused ? 'Reproducir' : 'Pausar';
+      toggle.disabled = reduced.matches;
+      toggle.setAttribute('aria-label', reduced.matches ? 'Movimiento automático desactivado' : paused ? 'Reproducir carrusel' : 'Pausar carrusel');
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0; last = 0; position = viewport.scrollLeft;
+      if (canRun()) frame = requestAnimationFrame(tick);
+    }
+    function manual() { paused = true; update(); }
+    toggle.addEventListener('click', function () { paused = !paused; update(); });
+    function step(direction) {
+      manual();
+      measure();
+      var stride = items[1].offsetLeft - items[0].offsetLeft;
+      var index = direction > 0 ? Math.floor(viewport.scrollLeft / stride + .01) + 1 : Math.ceil(viewport.scrollLeft / stride - .01) - 1;
+      viewport.scrollLeft = ((index * stride) % period + period) % period;
+      position = viewport.scrollLeft;
+    }
+    root.querySelector('[data-carousel-prev]').addEventListener('click', function () { step(-1); });
+    root.querySelector('[data-carousel-next]').addEventListener('click', function () { step(1); });
+    viewport.addEventListener('pointerdown', manual, { passive: true });
+    viewport.addEventListener('wheel', manual, { passive: true });
+    viewport.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault(); step(event.key === 'ArrowRight' ? 1 : -1);
+      } else if (event.key === 'Home' || event.key === 'End') {
+        event.preventDefault(); manual(); measure();
+        viewport.scrollLeft = event.key === 'Home' ? 0 : items[items.length - 1].offsetLeft - items[0].offsetLeft;
+      }
+    });
+    viewport.addEventListener('pointerenter', function (event) { if (event.pointerType === 'mouse') { hovering = true; update(); } });
+    viewport.addEventListener('pointerleave', function () { hovering = false; update(); });
+    viewport.addEventListener('focusin', function () { focused = true; update(); });
+    viewport.addEventListener('focusout', function () { focused = false; update(); });
+    document.addEventListener('visibilitychange', update);
+    window.addEventListener('resize', function () { measure(); update(); });
+    reduced.addEventListener('change', function () { paused = true; update(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting; measure(); update();
+      }, { threshold: .1 }).observe(viewport);
+    }
+    root.querySelector('.carousel-controls').hidden = false;
+    measure(); update();
+  }
   function start() {
+    document.querySelectorAll('[data-course-carousel]').forEach(initCarousel);
     // La guía siempre ofrece Inicio; Volver solo aparece con procedencia interna.
     var previous;
     try { previous = new URL(document.referrer); } catch (_) {}
