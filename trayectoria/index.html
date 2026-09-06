@@ -153,8 +153,10 @@ body { margin: 0; background: #131618; }
 .page main [id] { scroll-margin-top: 1rem; }
 .page .hero { display: grid; grid-template-columns: minmax(0,1fr); gap: 26px; padding-block: 32px 44px; }
 .page .hero-copy .lbl { color: var(--ocre); margin-bottom: 12px; }
-.page .hero h1 { font-size: var(--h1); max-width: 17ch; margin-bottom: 16px; }
-.page .hero-title-line { display: block; }
+.page .hero h1 { font-size: clamp(1.5rem, 6.6vw, 2rem); max-width: none; margin-bottom: 16px; }
+.page .hero-title-line { display: block; white-space: nowrap; }
+.page .professional { color: #91C9E8; }
+.page .unit[style*='--gris'] .lbl { color: var(--ocre); }
 .page .hero .hero-intro { max-width: 48ch; font-size: 1rem; margin: 0 0 20px; }
 .page .hero-ctas { display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; }
 .page .hero-ctas .b { flex: 1 1 auto; padding-inline: 14px; }
@@ -203,6 +205,12 @@ body { margin: 0; background: #131618; }
 .page .foot { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; padding-block: 32px; font-size: .875rem; }
 .page .foot .h { font: 600 .85rem Archivo, Arial, sans-serif; white-space: nowrap; }
 .page .foot-links { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+.page .social-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.page .social-links a { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; font-size: 1rem; color: var(--muted); }
+.page .social-links a:hover { color: var(--ocre); }
+.page .social-links svg { width: 20px; height: 20px; flex-shrink: 0; fill: currentColor; }
+.page .area-socials { margin-top: 32px; padding-block: 24px 32px; border-top: 1px solid var(--line); }
+.page .area-socials .lbl { margin-bottom: 10px; }
 .page .foot a { min-height: 44px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }
 .page .phero { display: grid; grid-template-columns: minmax(0,1fr); gap: 28px; padding-block: 36px 44px; }
 .page .phero .ph { max-height: 300px; aspect-ratio: 4 / 3 !important; }
@@ -266,7 +274,7 @@ body { margin: 0; background: #131618; }
 @media (min-width: 700px) {
   .page .wrap { padding-inline: 40px; }
   .page .hero { grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 36px; align-items: center; padding-block: 52px; }
-  .page .hero h1 { font-size: clamp(2.5rem, 4.2vw, 4.25rem); }
+  .page .hero h1 { font-size: clamp(1.4rem, 3vw, 3rem); }
   .page .hero-portrait .ph { height: auto; aspect-ratio: 4 / 5; }
   .page .hero-portrait img { object-position: 100% 45%; }
   .page .section { padding-block: 64px; }
@@ -303,7 +311,7 @@ body { margin: 0; background: #131618; }
   .page .unit-body > .lbl { min-height: 3.2em; }
   .page .unit-body > h3 { min-height: 2.3em; }
   .page .unit-body .unit-photo { aspect-ratio: 4 / 3; margin: 0 0 4px; }
-  .page .foot { flex-direction: row; justify-content: space-between; align-items: center; }
+  .page .foot { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -585,7 +593,7 @@ body { margin: 0; background: #131618; }
 
 </main><div class="wrap"><div class="foot">
 <a class="h" href="/" style="font-size: var(--small); letter-spacing: 0.2em; color: var(--ink);">VÍCTOR OLIVARI</a>
-<div class="foot-links">
+<div class="foot-links"><a href="https://olivari-derecho.com.ar" target="_blank" rel="noopener noreferrer">olivari-derecho.com.ar ↗</a>
 <a href="https://www.olivari.com.ar" target="_blank" rel="noopener noreferrer">olivari.com.ar ↗</a>
 
 <a href="https://olivari-capacitaciones.com.ar" target="_blank" rel="noopener noreferrer">olivari-capacitaciones.com.ar ↗</a>
