@@ -1,0 +1,23 @@
+{
+  "name": "Víctor Olivari",
+  "short_name": "VO",
+  "description": "Bienes raíces, derecho inmobiliario y formación profesional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F1EB",
+  "theme_color": "#131618",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
