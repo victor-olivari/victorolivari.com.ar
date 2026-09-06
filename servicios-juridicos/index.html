@@ -357,6 +357,18 @@ body { margin: 0; background: #131618; }
 .page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
 .page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
 .page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.page .story-more { max-width: 66ch; margin-top: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.page .story-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; cursor: pointer; color: var(--ink); font-size: .9375rem; font-weight: 600; letter-spacing: .04em; list-style: none; }
+.page .story-more > summary::-webkit-details-marker { display: none; }
+.page .story-more > summary::after { content: '+'; color: var(--ocre); font: 1.5rem/1 Arial, sans-serif; }
+.page .story-more[open] > summary::after { content: '−'; }
+.page .story-more .relato { padding-bottom: 10px; }
+.page .family-story { display: grid; gap: 28px; align-items: center; margin-top: 42px; padding-top: 42px; border-top: 1px solid var(--line); }
+.page .family-story .ph { aspect-ratio: 3 / 4; max-width: 390px; justify-self: center; }
+.page .family-story .ph img { object-fit: cover; }
+@media (min-width: 700px) {
+  .page .family-story { grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); gap: 48px; }
+}
 @media print {
   .page .carousel-controls, .page .carousel-track [aria-hidden="true"] { display: none; }
   .page .carousel-viewport { overflow: visible; }
@@ -376,14 +388,15 @@ body { margin: 0; background: #131618; }
 <div>
 <div class="lbl" style="color: var(--gris); margin-bottom: 20px;">Servicios jurídicos</div>
 <h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">Contratos, patrimonio y decisiones jurídicas.</h1>
-<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Asistencia jurídica para ordenar una situación, prevenir contingencias y actuar cuando existe un conflicto vinculado a inmuebles.</p>
+<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Asistencia jurídica para ordenar una situación, prevenir contingencias y definir una estrategia cuando un inmueble, un contrato o un patrimonio están en juego.</p>
 </div>
 <div class="ph area-portrait area-portrait-vertical"><img width="1050" height="1400" srcset="/fotos/areas-derecho-360.webp 360w, /fotos/areas-derecho-640.webp 640w, /fotos/areas-derecho-960.webp 960w, /fotos/areas-derecho.webp 1050w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari en su estudio jurídico" decoding="async" src="/fotos/areas-derecho.webp"/></div>
 </div>
 <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
 <div class="lbl" style="color: var(--gris); margin-bottom: 18px;">Cómo lo veo</div>
-<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Entender la situación antes de actuar.</h2>
-<div class="relato"><p class="entrada">Litigo, pero primero pruebo si el conflicto se puede resolver sin llegar a un juicio.</p><p>Trabajo con otros abogados litigantes, pero antes probamos la mediación y la conciliación: resuelven más rápido y dejan mejor parado a todos que un expediente. Ahí entran los desalojos, las prescripciones adquisitivas, la ejecución de alquileres y la ejecución de expensas.</p><p>Hoy prestamos servicio legal a más de 40 edificios, consorcios, barrios privados y conjuntos inmobiliarios —asesoramiento y cobro de expensas y multas— y a inmobiliarias de toda la región del NEA, para las que redactamos contratos de administración y otros instrumentos específicos.</p><div class="destacado">Resolver rápido no es resolver mal: es resolver antes de que se pudra.</div></div>
+<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Primero, entender qué necesita resolverse.</h2>
+<div class="relato"><p class="entrada">Quien consulta no busca un juicio: busca recuperar previsibilidad, proteger un derecho o destrabar una situación que no debería seguir creciendo.</p><p>La primera tarea es ordenar hechos, documentos y plazos. Recién entonces se elige el camino: negociación, mediación, acuerdo o, cuando es necesario, una acción judicial. Litigar es una herramienta disponible; no una respuesta automática.</p><div class="destacado">Claridad sobre el problema. Estrategia para el próximo paso.</div></div>
+<details class="story-more"><summary>Leer más sobre cómo trabajamos</summary><div class="relato"><p>El criterio de la firma prioriza una solución componedora cuando permite resguardar los derechos involucrados. La conciliación o la mediación pueden evitar tiempo, costo y desgaste; si no alcanzan, el trabajo litigioso se aborda con la misma preparación.</p><p>La práctica reúne desalojos, prescripciones adquisitivas, ejecuciones de alquileres y expensas, propiedad horizontal, sucesiones, contratos y otros conflictos patrimoniales vinculados a inmuebles. También brindamos asesoramiento y elaboración de instrumentos específicos para inmobiliarias.</p><p>El equipo acompaña a edificios, consorcios, barrios privados y conjuntos inmobiliarios, y trabaja con inmobiliarias de la región del NEA. Cada caso depende de sus antecedentes, documentación y encuadre normativo: el sitio informa el enfoque; una entrevista permite analizar la situación concreta.</p></div></details>
 </div></div>
 <div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Áreas de práctica</h2></div>
 <div class="wrap" style="padding-bottom: 66px;">

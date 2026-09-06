@@ -357,6 +357,18 @@ body { margin: 0; background: #131618; }
 .page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
 .page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
 .page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.page .story-more { max-width: 66ch; margin-top: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.page .story-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; cursor: pointer; color: var(--ink); font-size: .9375rem; font-weight: 600; letter-spacing: .04em; list-style: none; }
+.page .story-more > summary::-webkit-details-marker { display: none; }
+.page .story-more > summary::after { content: '+'; color: var(--ocre); font: 1.5rem/1 Arial, sans-serif; }
+.page .story-more[open] > summary::after { content: '−'; }
+.page .story-more .relato { padding-bottom: 10px; }
+.page .family-story { display: grid; gap: 28px; align-items: center; margin-top: 42px; padding-top: 42px; border-top: 1px solid var(--line); }
+.page .family-story .ph { aspect-ratio: 3 / 4; max-width: 390px; justify-self: center; }
+.page .family-story .ph img { object-fit: cover; }
+@media (min-width: 700px) {
+  .page .family-story { grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); gap: 48px; }
+}
 @media print {
   .page .carousel-controls, .page .carousel-track [aria-hidden="true"] { display: none; }
   .page .carousel-viewport { overflow: visible; }
@@ -375,8 +387,8 @@ body { margin: 0; background: #131618; }
 <div class="wrap phero">
 <div>
 <div class="lbl" style="color: var(--ocre); margin-bottom: 20px;">Sobre mí</div>
-<h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">Una trayectoria entre mercado y derecho.</h1>
-<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Soy Víctor Olivari, corredor inmobiliario, abogado y docente. Mi trabajo reúne operaciones, valuación y formación profesional.</p>
+<h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">Una trayectoria entre mercado, derecho y formación.</h1>
+<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Soy Víctor Olivari, corredor inmobiliario, abogado y docente. Trabajo para que las decisiones sobre inmuebles se tomen con información, método y una mirada integral.</p>
 </div>
 <div class="ph" style="aspect-ratio: 4 / 5;"><img width="640" height="641" srcset="/fotos/retrato-biblioteca-360.webp 360w, /fotos/retrato-biblioteca.webp 640w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari en su biblioteca" decoding="async" src="/fotos/retrato-biblioteca.webp"/></div>
 </div>
@@ -391,8 +403,10 @@ body { margin: 0; background: #131618; }
 </div>
 <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
 <div class="lbl" style="color: var(--ocre); margin-bottom: 18px;">El origen</div>
-<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Disciplinas que se complementan.</h2>
-<div class="relato"><p class="entrada">Me recibí de abogado en 2006, pero mi primer trabajo pago no tuvo nada que ver con lo que hago hoy: fue dando clases de seguros patrimoniales.</p><p>Un año antes, en 2005, había entrado como asesor legislativo a la Cámara de Diputados del Chaco. Ahí conocí al Dr. Sergio Lencov, hoy Defensor del Pueblo de la provincia. No empecé a trabajar con él enseguida: mientras daba esas clases, alquilé una oficina de 3 por 4 metros en una planta alta del mismo edificio —sin uso, se la pedí a la institución que me contrataba— y ahí arranqué mi práctica como abogado. Recién cuando terminó mi contrato en la Cámara me sumé al estudio de Lencov, donde ejercí tres años. Esa mirada de un abogado senior fue la que después orienté hacia el derecho inmobiliario.</p><p>A fines de 2010 decidí que era momento de tener mi propia firma y enfocarme en los casos que de verdad me interesaban.</p><p>Siempre me atrajeron demasiadas cosas a la vez. En los últimos años del secundario escribía tesis para otros y armé un par de programas que terminaron usándose en farmacias de Resistencia, sin cobrar, a cambio de aprender. Es algo que heredé de mis padres, que fueron luchadores toda la vida. Si tuviera que arrepentirme de algo, sería de haber repartido tanto el tiempo entre tantos intereses. Pero es exactamente esa dispersión la que hoy me deja mirar un inmueble desde varios lugares a la vez —el jurídico, el inmobiliario, el de la tasación, el de la formación— y sostener con eso un ecosistema de empresas chicas en vez de una sola.</p><div class="destacado">La misma curiosidad que se dispersaba en todo es la que hoy conecta todo.</div></div>
+<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Una forma de mirar que se fue construyendo.</h2>
+<div class="relato"><p class="entrada">Mi primer aula llegó antes que mi primer estudio. En 2006, recién recibido de abogado, dicté clases de seguros patrimoniales y, en paralelo, abrí una oficina de tres por cuatro metros para empezar mi práctica.</p><p>Desde entonces el trabajo fue uniendo caminos que parecían separados: derecho, tasaciones, corretaje y formación. Hoy esa combinación sirve para leer un inmueble más allá de una sola cifra, un solo contrato o una sola operación.</p><div class="destacado">Las mejores decisiones rara vez nacen de mirar una sola parte del problema.</div></div>
+<details class="story-more"><summary>Leer más sobre mi recorrido</summary><div class="relato"><p>Antes de recibirme trabajé como asesor legislativo en la Cámara de Diputados del Chaco. Más tarde, la experiencia en un estudio jurídico me dio el rigor para profundizar un camino propio: a fines de 2010 decidí consolidar mi firma y orientar la práctica hacia los asuntos que más me interesaban.</p><p>La docencia fue otro hilo constante. Después de aquella primera clase, las tasaciones abrieron una etapa de estudio y formación que no se interrumpió: cursos, congresos, aulas presenciales y luego plataformas virtuales. Enseñar me obliga a revisar el método y a explicarlo de una manera que alguien pueda usar al día siguiente.</p><p>También me interesaron siempre la investigación, la tecnología y los proyectos. Esa curiosidad, que antes parecía dispersión, hoy es una ventaja: permite conectar lo jurídico, lo comercial, lo valuatorio y lo formativo cuando una decisión inmobiliaria exige mirar el conjunto.</p></div></details>
+<section class="family-story" aria-labelledby="familia-titulo"><div><div class="lbl" style="color: var(--ocre); margin-bottom: 18px;">La parte que sostiene el recorrido</div><h2 class="h" id="familia-titulo" style="font-size: var(--h3); margin-bottom: 18px;">Nada de esto se construye solo.</h2><p class="body">Detrás de cada proyecto está mi familia. Mi esposa es compañía, conversación y apoyo; junto con nuestros hijos, es el lugar desde el que puedo sostener el trabajo y seguir creciendo sin perder de vista lo importante.</p></div><div class="ph"><img loading="lazy" decoding="async" width="1050" height="1400" srcset="/fotos/hd-familia-360.webp 360w, /fotos/hd-familia-640.webp 640w, /fotos/hd-familia-960.webp 960w, /fotos/hd-familia.webp 1050w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari junto a su familia" decoding="async" src="/fotos/hd-familia.webp"/></div></section>
 </div></div>
 <div class="wrap" style="padding-top: 72px; padding-bottom: 26px;">
 <h2 class="h" style="font-size: var(--h2); margin-bottom: 12px;">Cuatro capítulos, un mismo hilo</h2>

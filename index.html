@@ -369,6 +369,18 @@ body { margin: 0; background: #131618; }
 .page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
 .page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
 .page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.page .story-more { max-width: 66ch; margin-top: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.page .story-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; cursor: pointer; color: var(--ink); font-size: .9375rem; font-weight: 600; letter-spacing: .04em; list-style: none; }
+.page .story-more > summary::-webkit-details-marker { display: none; }
+.page .story-more > summary::after { content: '+'; color: var(--ocre); font: 1.5rem/1 Arial, sans-serif; }
+.page .story-more[open] > summary::after { content: '−'; }
+.page .story-more .relato { padding-bottom: 10px; }
+.page .family-story { display: grid; gap: 28px; align-items: center; margin-top: 42px; padding-top: 42px; border-top: 1px solid var(--line); }
+.page .family-story .ph { aspect-ratio: 3 / 4; max-width: 390px; justify-self: center; }
+.page .family-story .ph img { object-fit: cover; }
+@media (min-width: 700px) {
+  .page .family-story { grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); gap: 48px; }
+}
 @media print {
   .page .carousel-controls, .page .carousel-track [aria-hidden="true"] { display: none; }
   .page .carousel-viewport { overflow: visible; }
@@ -407,6 +419,8 @@ body { margin: 0; background: #131618; }
 
 
 
+
+
 <!--GUIA--><div class="wrap location-guide"><a class="back-link" href="/" data-back hidden><span aria-hidden="true">←</span> Volver</a><nav class="section-links" aria-label="Secciones del inicio"><a href="#areas">Áreas</a><a href="#sobre-mi">Sobre mí</a><a href="#trayectoria">Hitos</a><a href="#contacto">Contacto</a></nav></div><!--/GUIA-->
 <!-- FRASE -->
 <div class="wrap manifesto"><p class="manifesto-premise">Conocimiento <span>+</span> experiencia <span>+</span> actualización</p><p class="h"><span class="manifesto-equals" aria-label="igual a">=</span> Precisión en cada servicio</p></div>
@@ -421,7 +435,7 @@ body { margin: 0; background: #131618; }
 <div id="sobre-mi" style="background: var(--deep);">
 <div class="wrap about section">
 <div class="ph about-portrait"><img loading="lazy" decoding="async" width="962" height="1028" srcset="/fotos/hd-yo-360.webp 360w, /fotos/hd-yo-640.webp 640w, /fotos/hd-yo-960.webp 960w, /fotos/hd-yo.webp 962w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari compartiendo su experiencia desde la biblioteca" decoding="async" src="/fotos/hd-yo.webp"/></div>
-<div><div class="lbl">Sobre mí</div><h2 class="h">El criterio detrás de cada consulta.</h2><p class="body">Hoy, la dirección que realizo de los servicios inmobiliarios, jurídicos y de capacitaciones está orientado claramente hacia los inmuebles, pero...</p><a class="text-link" href="/sobre-mi">¿Cómo llegué hasta acá?</a></div>
+<div><div class="lbl">Sobre mí</div><h2 class="h">El criterio detrás de cada consulta.</h2><p class="body">Empecé como abogado y docente; con el tiempo uní derecho, valuación, operación y formación para abordar los inmuebles de manera integral.</p><a class="text-link" href="/sobre-mi">¿Cómo llegué hasta acá?</a><a class="text-link" href="https://www.linkedin.com/in/victor-olivari-1b532aa4/" target="_blank" rel="noopener noreferrer">Ver perfil profesional en LinkedIn ↗</a></div>
 </div>
 </div>
 <!-- TRAYECTORIA -->

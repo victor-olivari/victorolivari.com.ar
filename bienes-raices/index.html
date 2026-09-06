@@ -355,6 +355,18 @@ body { margin: 0; background: #131618; }
 .page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
 .page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
 .page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.page .story-more { max-width: 66ch; margin-top: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.page .story-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; cursor: pointer; color: var(--ink); font-size: .9375rem; font-weight: 600; letter-spacing: .04em; list-style: none; }
+.page .story-more > summary::-webkit-details-marker { display: none; }
+.page .story-more > summary::after { content: '+'; color: var(--ocre); font: 1.5rem/1 Arial, sans-serif; }
+.page .story-more[open] > summary::after { content: '−'; }
+.page .story-more .relato { padding-bottom: 10px; }
+.page .family-story { display: grid; gap: 28px; align-items: center; margin-top: 42px; padding-top: 42px; border-top: 1px solid var(--line); }
+.page .family-story .ph { aspect-ratio: 3 / 4; max-width: 390px; justify-self: center; }
+.page .family-story .ph img { object-fit: cover; }
+@media (min-width: 700px) {
+  .page .family-story { grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); gap: 48px; }
+}
 @media print {
   .page .carousel-controls, .page .carousel-track [aria-hidden="true"] { display: none; }
   .page .carousel-viewport { overflow: visible; }
@@ -374,14 +386,15 @@ body { margin: 0; background: #131618; }
 <div>
 <div class="lbl" style="color: var(--rojo); margin-bottom: 20px;">Bienes Raíces</div>
 <h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">Bienes raíces, con fundamento.</h1>
-<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Comercialización, locaciones y tasaciones. Acompaño decisiones sobre inmuebles con análisis de mercado y atención a la documentación.</p>
+<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Comercialización, locaciones, administración y tasaciones. Cada decisión se trabaja con mercado, documentación y un criterio que pueda explicarse.</p>
 </div>
 <div class="ph area-portrait"><img width="1400" height="1050" srcset="/fotos/areas-bienes-raices-360.webp 360w, /fotos/areas-bienes-raices-640.webp 640w, /fotos/areas-bienes-raices-960.webp 960w, /fotos/areas-bienes-raices.webp 1400w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Víctor Olivari en la oficina de Olivari Bienes Raíces" decoding="async" src="/fotos/areas-bienes-raices.webp"/></div>
 </div>
 <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
 <div class="lbl" style="color: var(--rojo); margin-bottom: 18px;">Por qué trabajo así</div>
-<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">El valor necesita contexto.</h2>
-<div class="relato"><p class="entrada">Una tasación no es una opinión: bancos, juzgados y empresas la piden porque necesitan que se sostenga si alguien la cuestiona.</p><p>Trabajamos ventas, locaciones y administración de propiedades de terceros, además de loteos y edificios propios. Tasamos para particulares, pero también para bancos, juzgados, empresas e inmobiliarias —cada uno con exigencias distintas sobre lo que un informe tiene que probar.</p><div class="destacado">El criterio que usamos para un banco es el mismo que usamos para un particular.</div></div>
+<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">El precio necesita una razón.</h2>
+<div class="relato"><p class="entrada">Aprendí temprano que publicar un inmueble fuera de mercado no lo vuelve más valioso: lo deja fuera de las decisiones reales.</p><p>Una tasación empieza antes de poner una cifra. Hay que entender para qué se necesita, revisar el inmueble y su documentación, mirar el mercado y explicar el criterio. Eso reduce incertidumbre y evita que una expectativa se convierta en meses sin movimiento.</p><div class="destacado">El buen precio no busca agradar: le da a la operación una posibilidad real de avanzar.</div></div>
+<details class="story-more"><summary>Leer más sobre el criterio de trabajo</summary><div class="relato"><p>Mis primeros aprendizajes en el sector fueron concretos: un informe entregado sin haber acordado bien las condiciones y una tasación condicionada por una pretensión alejada del mercado. Ninguno fue un error técnico espectacular; ambos enseñaron algo esencial sobre previsibilidad, encuadre y confianza.</p><p>Por eso no se toma una propiedad solo para sumar publicaciones. Se evalúan sus condiciones, la documentación y el valor probable de mercado antes de definir una estrategia. La revisión jurídica no aparece recién en la escribanía: empieza cuando se decide avanzar —o no— con una operación.</p><p>Hoy el trabajo incluye ventas, locaciones, administración de propiedades, desarrollos, loteos y tasaciones para particulares, empresas, inmobiliarias, bancos y juzgados. Cambia la finalidad; no el deber de fundamentar cada paso.</p></div></details>
 </div></div>
 <div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Áreas de trabajo</h2></div>
 <div class="wrap" style="padding-bottom: 66px;">

@@ -357,6 +357,18 @@ body { margin: 0; background: #131618; }
 .page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
 .page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
 .page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.page .story-more { max-width: 66ch; margin-top: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.page .story-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; cursor: pointer; color: var(--ink); font-size: .9375rem; font-weight: 600; letter-spacing: .04em; list-style: none; }
+.page .story-more > summary::-webkit-details-marker { display: none; }
+.page .story-more > summary::after { content: '+'; color: var(--ocre); font: 1.5rem/1 Arial, sans-serif; }
+.page .story-more[open] > summary::after { content: '−'; }
+.page .story-more .relato { padding-bottom: 10px; }
+.page .family-story { display: grid; gap: 28px; align-items: center; margin-top: 42px; padding-top: 42px; border-top: 1px solid var(--line); }
+.page .family-story .ph { aspect-ratio: 3 / 4; max-width: 390px; justify-self: center; }
+.page .family-story .ph img { object-fit: cover; }
+@media (min-width: 700px) {
+  .page .family-story { grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); gap: 48px; }
+}
 @media print {
   .page .carousel-controls, .page .carousel-track [aria-hidden="true"] { display: none; }
   .page .carousel-viewport { overflow: visible; }
@@ -376,7 +388,7 @@ body { margin: 0; background: #131618; }
 <div>
 <div class="lbl" style="color: var(--verde); margin-bottom: 20px;">Capacitaciones</div>
 <h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">La práctica también se aprende.</h1>
-<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Formación en tasaciones, derecho inmobiliario, consorcios y tecnología. Método y herramientas para el trabajo cotidiano.</p>
+<p class="body" style="max-width: 620px; font-size: calc(var(--body) * 1.08);">Formación en tasaciones, derecho inmobiliario, consorcios y tecnología aplicada. Herramientas pensadas para volver al trabajo con un criterio más claro.</p>
 </div>
 <div class="ph area-portrait area-portrait-vertical"><img width="1050" height="1400" srcset="/fotos/cursos-aula-curso-6-360.webp 360w, /fotos/cursos-aula-curso-6-640.webp 640w, /fotos/cursos-aula-curso-6-960.webp 960w, /fotos/cursos-aula-curso-6.webp 1050w" sizes="(max-width: 433px) calc(100vw - 44px), 480px" alt="Víctor Olivari dictando una capacitación entre los asistentes del aula" decoding="async" src="/fotos/cursos-aula-curso-6.webp"/></div>
 </div>
@@ -410,8 +422,9 @@ body { margin: 0; background: #131618; }
 </section>
 <div class="wrap" style="padding-top: 78px; padding-bottom: 78px;"><div>
 <div class="lbl" style="color: var(--verde); margin-bottom: 18px;">El primer curso</div>
-<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Compartir el método de trabajo.</h2>
-<div class="relato"><p class="entrada">Los programas parten de preguntas que aparecen en la práctica profesional.</p><p>Casos, documentación y ejercicios permiten conectar los conceptos con las decisiones del trabajo cotidiano. La tecnología se incorpora como herramienta de apoyo al análisis.</p><div class="destacado">Aprender para llevarlo a la práctica.</div></div>
+<h2 class="h" style="font-size: var(--h2); margin-bottom: 26px; max-width: 20ch; text-wrap: pretty;">Enseñar es poner el método a prueba.</h2>
+<div class="relato"><p class="entrada">Mi primer curso como abogado fue sobre seguros patrimoniales. El siguiente, sobre tasaciones, abrió un camino que no se interrumpió desde 2007.</p><p>Una clase obliga a convertir experiencia en algo que otro pueda usar: una pregunta, un caso, una planilla, un documento y una decisión. Por eso los programas no se quedan en la teoría; trabajan sobre situaciones que aparecen en la práctica profesional.</p><div class="destacado">Aprender no es acumular información: es saber qué hacer con ella.</div></div>
+<details class="story-more"><summary>Leer más sobre las capacitaciones</summary><div class="relato"><p>Las primeras capacitaciones sobre tasaciones aceleraron mi propio aprendizaje. A la vez que estudiaba y participaba de cursos y congresos, el desafío era transformar ese conocimiento en herramientas claras para corredores, profesionales y organizaciones.</p><p>Desde entonces hubo aulas, congresos, colegios profesionales, cámaras empresariales y encuentros en distintas provincias. En 2020, cuando dejó de ser posible viajar, la formación virtual permitió sostener ese vínculo y ampliar las modalidades sin abandonar los encuentros presenciales.</p><p>Hoy la formación reúne valuación, alquileres, compraventa, derecho inmobiliario, propiedad horizontal y tecnología. La inteligencia artificial puede ordenar información y acelerar tareas; el criterio profesional sigue siendo el que revisa, explica y decide.</p></div></details>
 </div></div>
 <div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Programas</h2></div>
 <div class="wrap" style="padding-bottom: 66px;">
