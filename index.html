@@ -382,6 +382,9 @@ body { margin: 0; background: #131618; }
 .page .carousel-track figure { flex: none; width: min(76vw, 480px); margin: 0; }
 .page .carousel-track img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--deep); border-radius: 3px; }
 .page .carousel-track figcaption { padding-top: 14px; max-width: 38ch; font-size: .875rem; line-height: 1.5; color: var(--muted); }
+/* El texto acompaña a cada imagen, incluso cuando la foto es vertical o panorámica. */
+.page .course-carousel .carousel-track figure { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.page .course-carousel .carousel-track figcaption { width: 100%; max-width: min(100%, 38ch); text-align: center; }
 .page .carousel-viewport:focus-visible, .page .carousel-controls button:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
 /* El recorrido reúne fotos de formatos muy diferentes; el fondo unifica la serie
    sin recortar personas ni documentos importantes. */
@@ -436,6 +439,7 @@ body { margin: 0; background: #131618; }
 <div>Directivo Colegio de Corr. Inmobiliarios del Chaco</div>
 </div>
 </div>
+
 
 
 
