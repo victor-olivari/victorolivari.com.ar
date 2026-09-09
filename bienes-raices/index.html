@@ -472,9 +472,25 @@ body { margin: 0; background: #131618; }
   .page .ph img { filter: none; }
 }
 
+.page[data-page="BienesRaices"] .practice-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.page[data-page="BienesRaices"] .practice {
+  border: 1px solid rgba(201, 133, 121, .45);
+  border-top: 3px solid var(--rojo);
+  background: rgba(201, 133, 121, .055);
+}
+.page[data-page="BienesRaices"] .practice summary { min-height: 74px; padding: 22px; font-weight: 700; }
+.page[data-page="BienesRaices"] .practice p { padding: 0 22px 22px; }
+@media (max-width: 899px) { .page[data-page="BienesRaices"] .practice-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .page[data-page="BienesRaices"] .practice-list { grid-template-columns: 1fr; } }
+
 /*/EDITORIAL*/
 
 </style>
+<script src="/nav-trayectoria.js" defer></script>
 </head>
 <body>
 <div class="page" data-page="BienesRaices" style="--rojo: #C98579; --gris: #BAC5CA; --verde: #8DBDC3; --ocre: #C9AE7D; --violeta: #B4A7CA; --tf: Spectral, Georgia, serif; --ts: 1; --bs: 1;"><a class="skip-link" href="#contenido-BienesRaices">Ir al contenido</a><header class="site-header"><nav aria-label="Navegación principal" class="wrap site-nav"><a class="brand" href="/">VÍCTOR OLIVARI</a><div class="desktop-links"><a aria-current="page" href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a href="/servicios-juridicos">Derecho</a><a href="/capacitaciones">Capacitaciones</a><a href="/mentorias">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div><details class="mobile-menu"><summary>Menú<span aria-hidden="true" class="menu-icon"></span></summary><div class="mobile-links"><a aria-current="page" href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a href="/servicios-juridicos">Derecho</a><a href="/capacitaciones">Capacitaciones</a><a href="/mentorias">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div></details></nav></header><main id="contenido-BienesRaices" tabindex="-1"><!--GUIA--><div class="wrap location-guide"><a class="back-link" href="/" data-back hidden><span aria-hidden="true">←</span> Volver</a><nav class="breadcrumb" aria-label="Ubicación"><a href="/">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Bienes raíces</span></nav></div><!--/GUIA-->
@@ -495,7 +511,7 @@ body { margin: 0; background: #131618; }
 </div></div>
 <div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Áreas de trabajo</h2></div>
 <div class="wrap" style="padding-bottom: 66px;">
-<div class="practice-list"><details class="practice"><summary>Corretaje</summary><p class="body">Comercialización de inmuebles urbanos y rurales, con análisis previo de la operación y su encuadre.</p></details><details class="practice"><summary>Locaciones</summary><p class="body">Alquileres de vivienda y comerciales: contrato, garantías, ajustes y prevención de conflictos.</p></details><details class="practice"><summary>Compraventas</summary><p class="body">Acompañamiento de la operación desde la reserva hasta la escritura, con revisión documental.</p></details><details class="practice"><summary>Tasaciones</summary><p class="body">Tasación urbana y rural con método comparativo, de costo y de renta, según la finalidad del informe.</p></details><details class="practice"><summary>Emprendimientos</summary><p class="body">Análisis y comercialización de desarrollos y proyectos inmobiliarios.</p></details><details class="practice"><summary>Inversiones</summary><p class="body">Lectura de una oportunidad: qué verificar antes de avanzar, sin recomendaciones financieras personalizadas.</p></details></div>
+<div class="practice-list"><details class="practice"><summary>Compraventas</summary><p class="body">Acompañamiento de la operación desde la reserva hasta la escritura, con revisión documental.</p></details><details class="practice"><summary>Locaciones</summary><p class="body">Alquileres de vivienda y comerciales: contrato, garantías, ajustes y prevención de conflictos.</p></details><details class="practice"><summary>Corretaje</summary><p class="body">Comercialización de inmuebles urbanos y rurales, con análisis previo de la operación y su encuadre.</p></details><details class="practice"><summary>Administraciones</summary><p class="body">Administración de propiedades en alquiler: pagos, mantenimiento, servicios, reclamos y seguimiento cotidiano de la relación locativa.</p></details><details class="practice"><summary>Tasaciones</summary><p class="body">Tasación urbana y rural con método comparativo, de costo y de renta, según la finalidad del informe. Ámbito judicial, bancario, comercial y particular.</p></details><details class="practice"><summary>Desarrollos</summary><p class="body">Desarrollamos proyectos constructivos, tanto para loteos como para edificios.</p></details></div>
 </div>
 <div style="background: var(--deep);">
 <div class="wrap" style="padding-top: 72px; padding-bottom: 72px;">
@@ -504,7 +520,7 @@ body { margin: 0; background: #131618; }
 <div>
 <div class="row" style="grid-template-columns: 54px 1fr; border-top: none; padding-top: 0;">
 <div class="h" style="font-size: var(--h3); color: var(--rojo);">1</div>
-<div><div class="h" style="font-size: var(--small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Finalidad</div><p class="body" style="font-size: var(--small);">Una tasación para vender no es la misma que para una sucesión, una partición o un juicio. Primero se define para qué es.</p></div>
+<div><div class="h" style="font-size: var(--small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Finalidad</div><p class="body" style="font-size: var(--small);">Una tasación para vender no es la misma que para una sucesión, una partición o una entidad crediticia. Primero se define para qué es.</p></div>
 </div>
 <div class="row" style="grid-template-columns: 54px 1fr;">
 <div class="h" style="font-size: var(--h3); color: var(--rojo);">2</div>
@@ -532,7 +548,7 @@ body { margin: 0; background: #131618; }
 <div class="chip">Compradores e inversores que evalúan una operación</div>
 <div class="chip">Sucesiones y particiones donde el valor importa</div>
 <div class="chip">Desarrolladores y dueños de emprendimientos</div>
-<div class="chip">Inmobiliarias de otras plazas</div>
+<div class="chip">Inmobiliarias de otras plazas, particulares, etc.</div>
 </div>
 </div>
 <div style="background: var(--deep);">
@@ -542,7 +558,7 @@ body { margin: 0; background: #131618; }
 <p class="body" style="max-width: 520px;">El listado de propiedades, las fichas y la gestión de la operación se manejan en el sitio de la inmobiliaria.</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-<a class="b b-br" href="https://www.olivari.com.ar" target="_blank" rel="noopener noreferrer">Ir a olivari.com.ar ↗</a>
+<a class="b b-br" href="https://www.olivari.com.ar" target="_blank" rel="noopener noreferrer">IR A LA INMOBILIARIA ↗</a>
 <a class="b b-tas" href="/contacto">Consultar por una tasación</a>
 </div>
 </div>

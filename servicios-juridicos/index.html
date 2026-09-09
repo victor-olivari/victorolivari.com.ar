@@ -474,9 +474,30 @@ body { margin: 0; background: #131618; }
   .page .ph img { filter: none; }
 }
 
+.page[data-page="Juridico"] .practice-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.page[data-page="Juridico"] .practice {
+  border: 1px solid rgba(186, 197, 202, .34);
+  border-top: 3px solid var(--gris);
+  background: rgba(186, 197, 202, .045);
+}
+.page[data-page="Juridico"] .practice summary { min-height: 74px; padding: 22px; font-weight: 700; }
+.page[data-page="Juridico"] .practice p { padding: 0 22px 22px; }
+.page[data-page="Juridico"] .audience-personas { background: rgba(141, 189, 195, .09); border-color: rgba(141, 189, 195, .45); }
+.page[data-page="Juridico"] .legal-disclaimer { padding-top: 34px; padding-bottom: 58px; }
+.page[data-page="Juridico"] .legal-disclaimer details { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.page[data-page="Juridico"] .legal-disclaimer summary { padding: 20px 0; cursor: pointer; font-weight: 700; }
+.page[data-page="Juridico"] .legal-disclaimer .relato { padding-bottom: 24px; }
+@media (max-width: 899px) { .page[data-page="Juridico"] .practice-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .page[data-page="Juridico"] .practice-list { grid-template-columns: 1fr; } }
+
 /*/EDITORIAL*/
 
 </style>
+<script src="/nav-trayectoria.js" defer></script>
 </head>
 <body>
 <div class="page" data-page="Juridico" style="--rojo: #C98579; --gris: #BAC5CA; --verde: #8DBDC3; --ocre: #C9AE7D; --violeta: #B4A7CA; --tf: Spectral, Georgia, serif; --ts: 1; --bs: 1;"><a class="skip-link" href="#contenido-Juridico">Ir al contenido</a><header class="site-header"><nav aria-label="Navegación principal" class="wrap site-nav"><a class="brand" href="/">VÍCTOR OLIVARI</a><div class="desktop-links"><a href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a aria-current="page" href="/servicios-juridicos">Derecho</a><a href="/capacitaciones">Capacitaciones</a><a href="/mentorias">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div><details class="mobile-menu"><summary>Menú<span aria-hidden="true" class="menu-icon"></span></summary><div class="mobile-links"><a href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a aria-current="page" href="/servicios-juridicos">Derecho</a><a href="/capacitaciones">Capacitaciones</a><a href="/mentorias">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div></details></nav></header><main id="contenido-Juridico" tabindex="-1"><!--GUIA--><div class="wrap location-guide"><a class="back-link" href="/" data-back hidden><span aria-hidden="true">←</span> Volver</a><nav class="breadcrumb" aria-label="Ubicación"><a href="/">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Derecho</span></nav></div><!--/GUIA-->
@@ -497,22 +518,17 @@ body { margin: 0; background: #131618; }
 </div></div>
 <div class="wrap" style="padding-top: 62px; padding-bottom: 18px;"><h2 class="h" style="font-size: var(--h2);">Áreas de práctica</h2></div>
 <div class="wrap" style="padding-bottom: 66px;">
-<div class="practice-list"><details class="practice"><summary>Locaciones</summary><p class="body">Contratos, garantías, ajustes, incumplimientos, resolución anticipada y conflictos entre locador y locatario.</p></details><details class="practice"><summary>Propiedad horizontal</summary><p class="body">Consorcios, expensas, asambleas, reglamentos, obras y conflictos entre copropietarios.</p></details><details class="practice"><summary>Sucesiones</summary><p class="body">Transmisión de inmuebles, particiones, adjudicaciones y valuación del acervo.</p></details><details class="practice"><summary>Desalojos</summary><p class="body">Falta de pago, vencimiento de contrato, intrusión y recupero de la posesión.</p></details><details class="practice"><summary>Prescripciones</summary><p class="body">Usucapión y regularización dominial de inmuebles con títulos imperfectos.</p></details><details class="practice"><summary>Medianería</summary><p class="body">Muros, límites, servidumbres y conflictos con linderos.</p></details><details class="practice"><summary>Litigios civiles</summary><p class="body">Controversias patrimoniales vinculadas a inmuebles y responsabilidad contractual.</p></details><details class="practice"><summary>Cobranzas</summary><p class="body">Gestión de deudas por alquileres, expensas y saldos de operaciones.</p></details><details class="practice"><summary>Mediación y acuerdos</summary><p class="body">Negociación y composición de conflictos para consorcios, inmobiliarias y barrios privados.</p></details></div>
+<div class="practice-list"><details class="practice"><summary>Locaciones</summary><p class="body">Contratos, garantías, ajustes, incumplimientos, resolución anticipada y conflictos entre locador y locatario.</p></details><details class="practice"><summary>Propiedad horizontal</summary><p class="body">Consorcios, expensas, asambleas, reglamentos, obras y conflictos entre copropietarios.</p></details><details class="practice"><summary>Sucesiones</summary><p class="body">Transmisión de inmuebles, particiones, adjudicaciones y valuación del acervo.</p></details><details class="practice"><summary>Desalojos</summary><p class="body">Falta de pago, vencimiento de contrato, intrusión y recupero de la posesión.</p></details><details class="practice"><summary>Prescripciones</summary><p class="body">Usucapión y regularización dominial de inmuebles con títulos imperfectos.</p></details><details class="practice"><summary>Medianería</summary><p class="body">Muros, límites, servidumbres y conflictos con linderos.</p></details><details class="practice"><summary>Litigios civiles</summary><p class="body">Controversias patrimoniales vinculadas a inmuebles y responsabilidad contractual. Obras inconclusas, fideicomisos, acciones reivindicatorias y reparaciones urgentes.</p></details><details class="practice"><summary>Cobranzas</summary><p class="body">Gestión de deudas por alquileres, expensas y saldos de operaciones. Ejecución de pagarés y cheques.</p></details><details class="practice"><summary>Mediación y acuerdos</summary><p class="body">Negociación de conflictos en consorcios, inmobiliarias y barrios privados, particiones hereditarias, divisiones de condominios, etc.</p></details></div>
 </div>
 <div style="background: var(--deep);">
 <div class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
 <h2 class="h" style="font-size: var(--h2); margin-bottom: 26px;">Para quién</h2>
 <div class="cols2" style="margin-bottom: 28px;">
-<div class="card"><div class="h" style="font-size: var(--h3);">Personas</div><p class="body" style="font-size: var(--small);">Propietarios, herederos, locadores, locatarios y copropietarios con una necesidad concreta sobre un inmueble.</p></div>
+<div class="card audience-personas"><div class="h" style="font-size: var(--h3);">Personas</div><p class="body" style="font-size: var(--small);">Propietarios, herederos, locadores, locatarios y copropietarios con una necesidad concreta sobre un inmueble.</p></div>
 <div class="card"><div class="h" style="font-size: var(--h3);">Organizaciones</div><p class="body" style="font-size: var(--small);">Consorcios, administraciones, barrios privados e inmobiliarias que necesitan asistencia jurídica especializada y continua.</p></div>
 </div>
 
 </div>
-</div>
-<div class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
-<h2 class="h" style="font-size: var(--h2); margin-bottom: 24px;">Antes de escribir</h2>
-<div class="aviso" style="max-width: 860px; margin-bottom: 24px;">El envío de una consulta a través de este sitio no crea una relación profesional ni implica el patrocinio del asunto. No envíes documentación confidencial ni información sensible por el formulario: la evaluación inicial define si corresponde una entrevista y bajo qué encuadre.</div>
-<p class="body" style="max-width: 860px; font-size: var(--small);">El contenido publicado en este sitio tiene finalidad informativa y no reemplaza una consulta profesional sobre un caso concreto. Cada situación depende de sus hechos, su documentación y su encuadre normativo.</p>
 </div>
 <div style="background: var(--deep);">
 <div class="wrap" style="padding-top: 62px; padding-bottom: 62px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
@@ -522,13 +538,12 @@ body { margin: 0; background: #131618; }
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
 <a class="b b-der" href="/contacto">Escribir una consulta</a>
-<a class="b b-der" href="/contacto">Asistencia para inmobiliarias</a>
 </div>
 </div>
 </div>
 
 
-<!--REDES-AREA--><section class="wrap area-socials" aria-label="Redes de Olivari · Derecho"><p class="lbl">Olivari · Derecho en redes</p><div class="social-links"><a class="red" href="https://www.facebook.com/olivari.derecho" aria-label="Facebook de Olivari · Derecho (abre en una pestaña nueva)" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg><span>Facebook</span></a></div></section><!--/REDES-AREA--></main><div class="wrap"><div class="foot">
+<!--REDES-AREA--><section class="wrap area-socials" aria-label="Redes de Olivari · Derecho"><p class="lbl">Olivari · Derecho en redes</p><div class="social-links"><a class="red" href="https://www.facebook.com/olivari.derecho" aria-label="Facebook de Olivari · Derecho (abre en una pestaña nueva)" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg><span>Facebook</span></a></div></section><!--/REDES-AREA--><div class="wrap legal-disclaimer"><details><summary>Aviso legal y confidencialidad</summary><div class="relato"><p class="body">El envío de una consulta a través de este sitio no crea una relación profesional ni implica el patrocinio del asunto. No envíes documentación confidencial ni información sensible por el formulario: la evaluación inicial define si corresponde una entrevista y bajo qué encuadre.</p><p class="body">El contenido publicado en este sitio tiene finalidad informativa y no reemplaza una consulta profesional sobre un caso concreto. Cada situación depende de sus hechos, su documentación y su encuadre normativo.</p></div></details></div></main><div class="wrap"><div class="foot">
 <a class="h" href="/" style="font-size: var(--small); letter-spacing: 0.2em; color: var(--ink);">VÍCTOR OLIVARI</a>
 <div class="foot-links"><a href="https://olivari-derecho.com.ar" target="_blank" rel="noopener noreferrer">olivari-derecho.com.ar ↗</a>
 <a href="https://www.olivari.com.ar" target="_blank" rel="noopener noreferrer">olivari.com.ar ↗</a>

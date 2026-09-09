@@ -486,9 +486,53 @@ body { margin: 0; background: #131618; }
   .page .ph img { filter: none; }
 }
 
+.page .mentor-hero .lbl,
+.page .mentor-section .lbl,
+.page .mentor-case .lbl,
+.page .mentor-cta .lbl { font-weight: 800; }
+.page .mentor-method { border-top: 0; gap: 14px; }
+.page .mentor-step {
+  padding: 28px 24px 26px 66px;
+  border: 1px solid color-mix(in srgb, var(--violeta) 52%, var(--line));
+  background: color-mix(in srgb, var(--violeta) 7%, var(--panel));
+}
+.page .mentor-step::before { left: 24px; top: 31px; }
+.page .mentor-proof { padding: 20px; border: 1px solid var(--line); border-top-width: 4px; }
+.page .mentor-proof:nth-child(1) { border-top-color: var(--rojo); background: rgba(201, 133, 121, .09); }
+.page .mentor-proof:nth-child(2) { border-top-color: var(--ocre); background: rgba(201, 174, 125, .09); }
+.page .mentor-proof:nth-child(3) { border-top-color: var(--gris); background: rgba(186, 197, 202, .09); }
+.page .mentor-proof:nth-child(4) { border-top-color: #91c9e8; background: rgba(145, 201, 232, .1); }
+@media (min-width: 700px) {
+  .page .mentor-case { grid-template-columns: minmax(0, 1fr); }
+  .page .mentor-case > div:first-child { max-width: 820px; }
+  .page .mentor-method { gap: 0; padding-inline: 18px; }
+  .page .mentor-step { min-height: 245px; padding: 64px 25px 28px; border-right: 1px solid color-mix(in srgb, var(--violeta) 52%, var(--line)); }
+  .page .mentor-step:nth-child(1) { transform: translateX(18px) rotate(-1deg); z-index: 1; }
+  .page .mentor-step:nth-child(2) { transform: translateY(18px); z-index: 2; }
+  .page .mentor-step:nth-child(3) { transform: translateX(-18px) rotate(1deg); z-index: 1; }
+  .page .mentor-step::before,
+  .page .mentor-step:nth-child(n+2)::before { left: 25px; top: 28px; }
+  .page .mentor-step:not(:last-child)::after {
+    content: '+';
+    position: absolute;
+    right: -17px;
+    top: 50%;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--violeta);
+    color: #111519;
+    font: 800 1.15rem/1 Arial, sans-serif;
+  }
+}
+
 /*/EDITORIAL*/
 
 </style>
+<script src="/nav-trayectoria.js" defer></script>
 </head>
 <body>
 <div class="page"><a class="skip-link" href="#contenido-mentorias">Ir al contenido</a><header class="site-header"><nav aria-label="Navegación principal" class="wrap site-nav"><a class="brand" href="/">VÍCTOR OLIVARI</a><div class="desktop-links"><a href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a href="/servicios-juridicos">Derecho</a><a href="/capacitaciones">Capacitaciones</a><a href="/mentorias" aria-current="page">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div><details class="mobile-menu"><summary>Menú<span aria-hidden="true" class="menu-icon"></span></summary><div class="mobile-links"><a href="/bienes-raices">Bienes raíces</a><a href="/tasaciones">Tasaciones</a><a href="/servicios-juridicos">Derecho</a><a href="/capacitaciones">Capacitaciones</a><a href="/mentorias" aria-current="page">Mentorías</a><a href="/sobre-mi">Sobre mí</a><a href="/contacto">Contacto</a></div></details></nav></header><main id="contenido-mentorias" tabindex="-1"><!--GUIA--><div class="wrap location-guide"><a class="back-link" href="/" data-back hidden><span aria-hidden="true">←</span> Volver</a><nav class="breadcrumb" aria-label="Ubicación"><a href="/">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Mentorías</span></nav></div><!--/GUIA--><script>
@@ -659,7 +703,7 @@ body { margin: 0; background: #131618; }
 <h1 class="h">Criterio aplicado para ordenar, decidir e implementar.</h1>
 <p class="body mentor-lead">Acompañamiento estratégico para profesionales, inmobiliarias, estudios, desarrolladores y equipos que necesitan resolver un desafío real sin fragmentarlo entre disciplinas. La propuesta integra mirada inmobiliaria, jurídica, valuatoria, organizacional y tecnológica.</p>
 <div class="mentor-pills" aria-label="Ejes de la mentoría"><span class="mentor-pill">Diagnóstico situado</span><span class="mentor-pill">Plan aplicable</span><span class="mentor-pill">Acompañamiento en la ejecución</span></div>
-<div class="hero-ctas" style="margin-top: 28px;"><a class="b primary" href="/contacto">Conversar sobre tu caso</a><a class="text-link" href="#areas-mentoria">Ver áreas de trabajo</a></div>
+<div class="hero-ctas" style="margin-top: 28px;"><a class="b primary" href="mailto:victorolivari@gmail.com?subject=Consulta%20sobre%20mentor%C3%ADa">Conversar sobre tu caso</a><a class="text-link" href="#areas-mentoria">Ver áreas de trabajo</a></div>
 </div>
 <figure><div class="ph"><img width="1400" height="924" srcset="/fotos/recorrido-mentoria-con-equipo-profesional-360.webp 360w, /fotos/recorrido-mentoria-con-equipo-profesional-640.webp 640w, /fotos/recorrido-mentoria-con-equipo-profesional-960.webp 960w, /fotos/recorrido-mentoria-con-equipo-profesional.webp 1400w" sizes="(max-width: 699px) calc(100vw - 44px), (max-width: 1099px) 46vw, 600px" alt="Sesión de mentoría con un equipo profesional" decoding="async" src="/fotos/recorrido-mentoria-con-equipo-profesional.webp"/></div><figcaption>Mentoría para Inmobiliaria Fénix</figcaption></figure>
 </section>
@@ -687,12 +731,12 @@ body { margin: 0; background: #131618; }
 </section>
 
 <section class="wrap mentor-section">
-<div class="mentor-section-head"><div><p class="lbl">Propuesta de valor</p><h2 class="h">Experiencia transversal, puesta al servicio de una decisión concreta.</h2></div><p class="body">El valor no está en sumar opiniones aisladas, sino en conectar mercado, norma, valor, operación y personas. Esa combinación permite anticipar consecuencias y convertir conocimiento técnico en una forma más clara de trabajar.</p></div>
+<div class="mentor-section-head"><div><p class="lbl">Propuesta de valor</p><h2 class="h">¿Qué te puedo aportar?</h2></div><p class="body">El valor no está en sumar opiniones aisladas, sino en conectar mercado, norma, valor, operación y personas. Esa combinación permite anticipar consecuencias y convertir conocimiento técnico en una forma más clara de trabajar.</p></div>
 <div class="mentor-proof-grid"><article class="mentor-proof"><strong>Mercado y operación inmobiliaria</strong><p class="body">Experiencia para leer la viabilidad práctica de una decisión y no quedarse únicamente con su formulación teórica.</p></article><article class="mentor-proof"><strong>Derecho aplicado</strong><p class="body">Capacidad para identificar obligaciones, responsabilidades y contingencias dentro de contratos, desarrollos y relaciones patrimoniales.</p></article><article class="mentor-proof"><strong>Valuación y método</strong><p class="body">Herramientas para fundamentar valores, ordenar evidencia y sostener una conclusión profesional frente a terceros.</p></article><article class="mentor-proof"><strong>Docencia, equipos y tecnología</strong><p class="body">Experiencia para traducir conceptos complejos, formar personas e incorporar herramientas digitales e inteligencia artificial con control profesional.</p></article></div>
 <details class="story-more mentor-more"><summary>Leer más sobre el alcance</summary><div class="relato"><p>La mentoría no reemplaza automáticamente una tasación formal, un dictamen jurídico, la dirección técnica de una obra ni la intervención de especialistas que el proyecto requiera. Su función es ordenar el escenario, detectar qué decisiones necesitan respaldo específico y coordinar el conocimiento para que las distintas partes no trabajen a ciegas.</p><p>Puede desarrollarse en encuentros individuales, jornadas con socios o responsables de área, espacios de formación para equipos y ciclos de acompañamiento sobre un proyecto. La duración y los entregables se definen después de un diagnóstico inicial, porque una consulta puntual y una transformación de procesos requieren intensidades distintas.</p><div class="story-pill">Primero se define el problema. Después, el formato de trabajo.</div><p>El resultado buscado es que la organización no dependa indefinidamente del mentor: que pueda comprender por qué decide, documentar sus criterios, repetir los procesos que funcionan y reconocer cuándo necesita asistencia especializada.</p></div></details>
 </section>
 
-<section class="mentor-cta"><div class="wrap"><p class="lbl" style="color: var(--violeta);">Próximo paso</p><h2 class="h">Traé el desafío. Empezamos por ordenarlo.</h2><p class="body">Contame qué estás intentando resolver, qué ya probaste y dónde se traba hoy la decisión. Con esa información se puede definir si conviene una consulta, una mentoría o una intervención con otros profesionales.</p><a class="b primary" href="/contacto">Solicitar una conversación inicial</a></div></section>
+<section class="mentor-cta"><div class="wrap"><p class="lbl" style="color: var(--violeta);">Próximo paso</p><h2 class="h">Traé el desafío. Empezamos por ordenarlo.</h2><p class="body">Contame qué estás intentando resolver, qué ya probaste y dónde se traba hoy la decisión. Con esa información se puede definir si conviene una consulta, una mentoría o una intervención con otros profesionales.</p><a class="b primary" href="mailto:victorolivari@gmail.com?subject=Consulta%20sobre%20mentor%C3%ADa">Solicitar una conversación inicial</a></div></section>
 
 <div class="wrap"><div class="foot"><a class="h" href="/">VÍCTOR OLIVARI</a><div class="foot-links"><a href="https://olivari-derecho.com.ar" target="_blank" rel="noopener noreferrer">olivari-derecho.com.ar ↗</a><a href="/sobre-mi">Sobre mí</a><a href="/capacitaciones">Capacitaciones</a><a href="/contacto">Contacto</a></div><a href="/privacidad">Política de privacidad</a></div></div>
 </main></div>
