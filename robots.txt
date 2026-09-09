@@ -1,3 +1,4 @@
-# Sitio en construcción: no indexar todavía.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://www.victorolivari.com.ar/sitemap.xml

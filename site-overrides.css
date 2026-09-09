@@ -230,3 +230,133 @@
     flex-basis: 28px;
   }
 }
+
+/* Ajustes editoriales finales por área. */
+.page .site-nav .brand::before {
+  width: 38px;
+  height: 30px;
+  flex-basis: 38px;
+  background-size: 100% 100%;
+}
+
+.page[data-page="BienesRaices"] .b-br,
+.page[data-page="Tasaciones"] main .b {
+  background: var(--rojo);
+  border-color: var(--rojo);
+  color: #fff;
+}
+
+.page[data-page="BienesRaices"] .b-tas:hover,
+.page[data-page="BienesRaices"] .b-tas:focus-visible {
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 2px rgba(201, 133, 121, .22);
+}
+
+.page[data-page="Capacitaciones"] .course-catalog-link,
+.page[data-page="Capacitaciones"] .b-cap[href^="https://olivari-capacitaciones"] {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: #101518;
+}
+
+.page[data-page="Capacitaciones"] .b-cap[href^="https://wa.me"]:hover,
+.page[data-page="Capacitaciones"] .b-cap[href^="https://wa.me"]:focus-visible {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 2px rgba(141, 189, 195, .22);
+}
+
+.page .mentor-hero .primary,
+.page .mentor-cta .primary {
+  background: var(--violeta);
+  border-color: var(--violeta);
+  color: #101518;
+}
+
+.page .mentor-case .lbl {
+  color: var(--violeta) !important;
+}
+
+.page[data-page="SobreMi"] .phero .lbl,
+.page[data-page="SobreMi"] main > .wrap > div > .lbl,
+.page[data-page="SobreMi"] .family-story .lbl,
+.page[data-page="SobreMi"] .course-carousel .lbl {
+  font-weight: 800;
+}
+
+.page[data-page="SobreMi"] .about-creds {
+  background: var(--panel);
+  padding-top: 26px;
+  padding-bottom: 26px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.page[data-page="SobreMi"] .about-creds .creds-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  color: var(--ink);
+}
+
+.page[data-page="SobreMi"] .about-creds .cred-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 78px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  background: rgba(255, 255, 255, .025);
+}
+
+.page[data-page="SobreMi"] .about-creds .cred-domain {
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.page[data-page="SobreMi"] .about-creds .cred-realestate { border-left-color: var(--rojo); }
+.page[data-page="SobreMi"] .about-creds .cred-law { border-left-color: #67add5; }
+.page[data-page="SobreMi"] .about-creds .cred-realestate .cred-domain,
+.page[data-page="SobreMi"] .about-creds .cred-realestate strong { color: var(--rojo); }
+.page[data-page="SobreMi"] .about-creds .cred-law .cred-domain,
+.page[data-page="SobreMi"] .about-creds .cred-law strong { color: #67add5; }
+
+.page[data-page="Trayectoria"] main > details > summary.wrap {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  min-height: 58px;
+}
+
+.page[data-page="Trayectoria"] main > details > div > .wrap {
+  padding-top: 18px !important;
+}
+
+.page[data-page="Contacto"] .contact-institution {
+  padding-top: 0 !important;
+}
+
+.page[data-page="Contacto"] .contact-orientations {
+  padding-bottom: 24px !important;
+}
+
+.page[data-page="Contacto"] .b-men {
+  background: #67add5;
+  border-color: #67add5;
+  color: #101518;
+}
+
+@media (max-width: 699px) {
+  .page .site-nav .brand::before {
+    width: 36px;
+    height: 28px;
+    flex-basis: 36px;
+  }
+
+  .page[data-page="SobreMi"] .about-creds .creds-list {
+    grid-template-columns: 1fr;
+  }
+}
