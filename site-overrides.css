@@ -18,9 +18,7 @@
   height: 34px;
   flex: 0 0 34px;
   border-radius: 3px;
-  background:
-    linear-gradient(90deg, transparent calc(50% - 1px), #67add5 calc(50% - 1px), #67add5 calc(50% + 1px), transparent calc(50% + 1px)),
-    url('/favicon-192.png?v=20260908-3') center / cover no-repeat;
+  background: url('/favicon.svg?v=20260909-2') center / contain no-repeat;
 }
 
 .page .site-nav .brand:hover,
