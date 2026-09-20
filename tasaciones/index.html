@@ -489,8 +489,45 @@ body { margin: 0; background: #131618; }
 
 /*/EDITORIAL*/
 
+
+/* === Tasaciones: tarjetas de método, cifras y bloques por completar === */
+.page .tas-foto { margin: 0; }
+.page .tas-foto img { display: block; width: 100%; max-width: 460px; height: auto;
+  margin-inline: auto; border: 1px solid var(--line); }
+/* El esquema es una lámina de fondo claro: se enmarca para que no flote
+   sobre el fondo oscuro de la sección. */
+.page .tas-esquema { margin: 0; }
+.page .tas-esquema img { display: block; width: 100%; max-width: 900px; height: auto;
+  margin-inline: auto; border: 1px solid var(--line); background: #fff; }
+/* Esta página nació como provisoria y se quedó sin las reglas de etiqueta
+   que sí tienen las demás. */
+.page .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.page .chip { border: 1px solid #3D4548; padding: 9px 15px; color: #C0BAB3;
+  display: inline-block; }
+.page .chip:hover { border-color: var(--ocre); }
+.page .tas-cifras { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.page .tas-cifra { border: 1px solid var(--line); border-left: 4px solid var(--rojo);
+  background: rgba(255,255,255,.025); padding: 18px 18px 16px; }
+.page .tas-cifra b { display: block; font-family: var(--tf); font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem);
+  line-height: 1; color: var(--ink); font-weight: 700; }
+.page .tas-cifra span { display: block; margin-top: 8px; font-size: .8125rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); }
+.page .tas-metodos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.page .tas-metodo { border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; }
+.page .tas-metodo .tas-lamina { aspect-ratio: 4 / 3; background: var(--deep); border-bottom: 1px solid var(--line); }
+.page .tas-metodo .tas-lamina img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.page .tas-metodo-cuerpo { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1; }
+.page .tas-cta { border-top: 1px solid var(--line); padding-top: 26px; margin-top: 36px;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.page .tas-cta p { margin: 0; max-width: 46ch; }
+/* Andamio: marca lo que falta escribir o fotografiar. Se borra al completarlo. */
+.page .falta { border: 1px dashed #5A6165; background: rgba(201,174,125,.05); padding: 18px 20px;
+  color: #9AA1A5; font-size: .9375rem; line-height: 1.65; }
+.page .falta b { display: block; font-family: Archivo, Arial, sans-serif; font-size: .75rem;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--ocre); margin-bottom: 8px; font-weight: 600; }
+.page .falta.lamina { display: flex; align-items: center; justify-content: center; text-align: center; aspect-ratio: 4 / 3; }
 </style>
-<link rel="stylesheet" href="/site-overrides.css?v=20260909-4">
+<link rel="stylesheet" href="/site-overrides.css?v=20260920">
 <script src="/nav-trayectoria.js" defer></script>
 <!--GA4--><script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1QVQXYZV7"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y1QVQXYZV7');</script><!--/GA4--></head>
 <body>
@@ -655,6 +692,155 @@ body { margin: 0; background: #131618; }
   else start();
 })();
 
-</script><div class="wrap" style="padding-top: 90px; padding-bottom: 90px; max-width: 720px;"><a href="/" class="lbl" style="color: var(--ocre); text-decoration: none;">← Víctor Olivari</a><h1 class="h" style="font-size: var(--h1); margin: 26px 0 20px;">Tasaciones</h1><p class="body" style="font-size: calc(var(--body) * 1.05);">Esta sección está en preparación: hago tasaciones urbanas y rurales, pericias judiciales y valuación para sucesiones, particiones y prescripciones. También tasaciones bancarias, comerciales y particulares. Todo con rigor técnico.</p><p class="body" style="margin-top: 18px;">Mientras tanto, la consulta se atiende por el canal de contacto.</p><p style="margin-top: 32px;"><a class="b" href="https://wa.me/5493624041532?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20sobre%20una%20tasaci%C3%B3n" target="_blank" rel="noopener noreferrer" style="display: inline-block;">Quiero una tasación</a></p></div><!--REDES-AREA--><section class="wrap area-socials" aria-label="Redes de Olivari · Bienes raíces"><p class="lbl">Olivari · Bienes raíces en redes</p><div class="social-links"><a class="red" href="https://www.instagram.com/olivaribienesraices/" aria-label="Instagram de Olivari · Bienes raíces (abre en una pestaña nueva)" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.788.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"></path></svg><span>Instagram</span></a><a class="red" href="https://www.facebook.com/olivari.bienesraices/" aria-label="Facebook de Olivari · Bienes raíces (abre en una pestaña nueva)" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg><span>Facebook</span></a></div></section><!--/REDES-AREA--></main></div>
+</script><div class="wrap" style="padding-top: 64px; padding-bottom: 34px; max-width: 900px;">
+<div class="lbl" style="color: var(--rojo); margin-bottom: 18px;">Tasaciones</div>
+<h1 class="h" style="font-size: var(--h1); margin-bottom: 22px; text-wrap: pretty;">Un valor que se puede sostener y explicar.</h1>
+<p class="body" style="font-size: calc(var(--body) * 1.08);">Tasaciones urbanas y rurales, pericias judiciales y valuación para sucesiones, particiones y prescripciones. También tasaciones bancarias, comerciales y para particulares.</p>
+</div>
+
+<div class="wrap" style="padding-bottom: 20px;">
+<div class="tas-cifras">
+<div class="tas-cifra"><b>+19</b><span>Años tasando</span></div>
+<div class="tas-cifra"><b>+1.900</b><span>Informes hechos</span></div>
+<div class="tas-cifra"><b>+7</b><span>Métodos propios</span></div>
+<div class="tas-cifra"><b>+4</b><span>Provincias</span></div>
+</div>
+</div>
+
+<!-- ===== 01 · TRADICIONAL ===== -->
+<div style="background: var(--deep);">
+<section class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
+<div class="lbl" style="color: var(--rojo); margin-bottom: 14px;">01 · El método</div>
+<div style="display: flex; align-items: center; gap: 13px; margin-bottom: 18px;"><span aria-hidden="true" style="color: var(--rojo); display: flex; flex: 0 0 auto;"><svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="8" rx="1"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg></span><h2 class="h" style="font-size: var(--h2); margin: 0;">Cómo trabajamos una tasación</h2></div>
+<p class="body" style="max-width: 62ch; margin-bottom: 34px;">Una tasación no empieza cuando se escribe una cifra. Empieza antes: cuando se entiende para qué se necesita, qué documentación existe, cuál es el estado real del inmueble y qué variables pueden afectar la operación.</p>
+<figure class="tas-foto"><img src="/fotos/tasaciones-relevamiento.webp" srcset="/fotos/tasaciones-relevamiento-400w.webp 400w, /fotos/tasaciones-relevamiento-640w.webp 640w, /fotos/tasaciones-relevamiento.webp 1000w" sizes="(max-width: 699px) 88vw, 460px" width="1000" height="1174" loading="lazy" decoding="async" alt="Víctor Olivari trabajando sobre los planos de un inmueble"></figure><div style="margin-bottom: 34px;"></div>
+<div class="cols2" style="gap: 32px;">
+<div>
+<div class="row" style="grid-template-columns: 54px 1fr; border-top: none; padding-top: 0;">
+<div class="h" style="font-size: var(--h3); color: var(--rojo);">1</div>
+<div><div class="h" style="font-size: var(--small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Finalidad</div><p class="body" style="font-size: var(--small);">Una tasación para vender no es la misma que para una sucesión, una partición o una entidad crediticia. Primero se define para qué es.</p></div>
+</div>
+<div class="row" style="grid-template-columns: 54px 1fr;">
+<div class="h" style="font-size: var(--h3); color: var(--rojo);">2</div>
+<div><div class="h" style="font-size: var(--small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Relevamiento</div><p class="body" style="font-size: var(--small);">Inspección del inmueble, documentación, situación registral y condiciones que afectan el valor.</p></div>
+</div>
+</div>
+<div>
+<div class="row" style="grid-template-columns: 54px 1fr; border-top: none; padding-top: 0;">
+<div class="h" style="font-size: var(--h3); color: var(--rojo);">3</div>
+<div><div class="h" style="font-size: var(--small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Método y datos</div><p class="body" style="font-size: var(--small);">Comparables de mercado, costo de reposición o renta, según corresponda.</p></div>
+</div>
+<div class="row" style="grid-template-columns: 54px 1fr;">
+<div class="h" style="font-size: var(--h3); color: var(--rojo);">4</div>
+<div><div class="h" style="font-size: var(--small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Informe explicado</div><p class="body" style="font-size: var(--small);">Un valor que se puede sostener y defender, con el razonamiento a la vista y sus límites declarados.</p></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 34px;"></div><figure class="tas-foto"><img src="/fotos/tasaciones-mesa-trabajo.webp" srcset="/fotos/tasaciones-mesa-trabajo-400w.webp 400w, /fotos/tasaciones-mesa-trabajo-640w.webp 640w, /fotos/tasaciones-mesa-trabajo.webp 1000w" sizes="(max-width: 699px) 88vw, 460px" width="1000" height="1191" loading="lazy" decoding="async" alt="Documentación y planillas sobre la mesa de trabajo de una tasación"></figure>
+<div class="tas-cta">
+<p class="body">¿Necesitás una tasación?</p>
+<a class="b b-tas" href="https://wa.me/5493624041532?text=Hola%2C%20necesito%20una%20tasaci%C3%B3n%20y%20quisiera%20consultar%20c%C3%B3mo%20encuadrarla" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+</div>
+</section>
+</div>
+
+<!-- ===== 02 · PARA QUIÉN ===== -->
+<section class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
+<div class="lbl" style="color: var(--rojo); margin-bottom: 14px;">02 · Destinatarios</div>
+<div style="display: flex; align-items: center; gap: 13px; margin-bottom: 18px;"><span aria-hidden="true" style="color: var(--rojo); display: flex; flex: 0 0 auto;"><svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1.5A4.5 4.5 0 017.5 14h3A4.5 4.5 0 0115 18.5V20"/><path d="M17 8.5a2.8 2.8 0 010 5M18 14h.5a4.5 4.5 0 014.5 4.5V20"/></svg></span><h2 class="h" style="font-size: var(--h2); margin: 0;">Para quién taso</h2></div>
+<div class="chips" style="margin-bottom: 8px;">
+<div class="chip">Juzgados</div>
+<div class="chip">Bancos</div>
+<div class="chip">Inmobiliarias</div>
+<div class="chip">Particulares</div>
+</div>
+<div class="tas-cta">
+<p class="body">¿Necesitás una tasación?</p>
+<a class="b b-tas" href="https://wa.me/5493624041532?text=Hola%2C%20necesito%20una%20tasaci%C3%B3n" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+</div>
+</section>
+
+<!-- ===== 03 · INTELIGENCIA ARTIFICIAL ===== -->
+<div style="background: var(--deep);">
+<section class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
+<div class="lbl" style="color: var(--rojo); margin-bottom: 14px;">03 · Tecnología</div>
+<div style="display: flex; align-items: center; gap: 13px; margin-bottom: 18px;"><span aria-hidden="true" style="color: var(--rojo); display: flex; flex: 0 0 auto;"><svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></span><h2 class="h" style="font-size: var(--h2); margin: 0;">Cómo uso la inteligencia artificial para tasar</h2></div>
+<p class="body" style="max-width: 62ch; margin-bottom: 22px;">Las herramientas de datos e inteligencia artificial ordenan la información y acortan el trabajo repetitivo. No reemplazan el criterio: la responsabilidad del valor sigue siendo del profesional que firma el informe.</p>
+<p class="body" style="max-width: 62ch; margin-bottom: 30px;">Es el tema sobre el que vengo disertando en los últimos congresos del sector: <a href="/trayectoria/" style="color: var(--ocre);">tasaciones con inteligencia artificial en el Congreso FIRA Joven de San Juan</a>, y <a href="/trayectoria/" style="color: var(--ocre);">big data e IA aplicados a la valuación en el 3.º Congreso Nacional Inmobiliario de Puerto Iguazú</a>.</p>
+<div class="falta" style="margin-bottom: 20px;"><b>Falta: cómo lo hacés</b>Contame en tus palabras, como se lo explicarías a un colega: qué parte del trabajo le pasás a la máquina (¿buscar comparables? ¿ordenar datos de mercado? ¿redactar el informe?), qué herramienta usás, y sobre todo qué es lo que nunca delegás. Eso último es lo que te diferencia.</div>
+<figure class="tas-esquema"><img src="/fotos/tasaciones-esquema-ia.webp" srcset="/fotos/tasaciones-esquema-ia-640w.webp 640w, /fotos/tasaciones-esquema-ia.webp 1050w" sizes="(max-width: 699px) 92vw, 900px" width="1050" height="600" loading="lazy" decoding="async" alt="Esquema del procedimiento de tasación potenciada con inteligencia artificial, en diez pasos: recibir documental, extraer datos clave, detectar faltantes, entrevistar, analizar matriz de riesgos, proponer decisiones comerciales, redactar asistido, auditar, corregir y generar el documento final."></figure>
+<div class="tas-cta">
+<p class="body">¿Querés una tasación con respaldo de datos de mercado?</p>
+<a class="b b-tas" href="https://wa.me/5493624041532?text=Hola%2C%20quisiera%20consultar%20por%20una%20tasaci%C3%B3n%20con%20an%C3%A1lisis%20de%20datos%20de%20mercado" target="_blank" rel="noopener noreferrer">Escribime por WhatsApp</a>
+</div>
+</section>
+</div>
+
+<!-- ===== 04 · MÉTODOS PROPIOS ===== -->
+<section class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
+<div class="lbl" style="color: var(--rojo); margin-bottom: 14px;">04 · Herramientas propias</div>
+<div style="display: flex; align-items: center; gap: 13px; margin-bottom: 18px;"><span aria-hidden="true" style="color: var(--rojo); display: flex; flex: 0 0 auto;"><svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 9v11"/></svg></span><h2 class="h" style="font-size: var(--h2); margin: 0;">Métodos y planillas que desarrollé</h2></div>
+<p class="body" style="max-width: 62ch; margin-bottom: 34px;">Instrumentos de trabajo propios, nacidos de casos concretos y usados después en las capacitaciones.</p>
+<div class="tas-metodos">
+<div class="tas-metodo">
+<div class="tas-lamina"><div class="falta lamina" style="border: 0; height: 100%; aspect-ratio: auto;"><span><b>Falta: imagen</b>Una captura de la planilla</span></div></div>
+<div class="tas-metodo-cuerpo">
+<div class="h" style="font-size: var(--h3);">Planilla de terreno urbano</div>
+<div class="falta"><b>Falta: qué resuelve</b>Dos o tres renglones: qué problema venías teniendo y qué hace la planilla.</div>
+</div>
+</div>
+<div class="tas-metodo">
+<div class="tas-lamina"><div class="falta lamina" style="border: 0; height: 100%; aspect-ratio: auto;"><span><b>Falta: imagen</b>Una captura del método</span></div></div>
+<div class="tas-metodo-cuerpo">
+<div class="h" style="font-size: var(--h3);">9 en 1</div>
+<div class="falta"><b>Falta: qué resuelve</b>Empezando por el nombre: ¿qué son los nueve?</div>
+</div>
+</div>
+<div class="tas-metodo">
+<div class="tas-lamina"><div class="falta lamina" style="border: 0; height: 100%; aspect-ratio: auto;"><span><b>Falta: imagen</b>Una captura del método</span></div></div>
+<div class="tas-metodo-cuerpo">
+<div class="h" style="font-size: var(--h3);">CRD</div>
+<div class="falta"><b>Falta: qué resuelve</b>Qué significa la sigla y para qué se usa.</div>
+</div>
+</div>
+<div class="tas-metodo">
+<div class="tas-lamina"><div class="falta lamina" style="border: 0; height: 100%; aspect-ratio: auto;"><span><b>Falta: imagen</b>Una captura del método</span></div></div>
+<div class="tas-metodo-cuerpo">
+<div class="h" style="font-size: var(--h3);">Sistema de puntos</div>
+<div class="falta"><b>Falta: qué resuelve</b>Qué se puntúa y cómo se traduce en valor.</div>
+</div>
+</div>
+</div>
+<div class="falta" style="margin-top: 20px;"><b>Falta: los que quedan</b>Me nombraste cuatro y dijiste que había más. Pasame los nombres que falten y armo la tarjeta de cada uno.</div>
+<div class="tas-cta">
+<p class="body">¿Sos colega y querés aprender a usarlos?</p>
+<a class="b b-tas" href="https://wa.me/5493624041532?text=Hola%2C%20quisiera%20consultar%20por%20los%20m%C3%A9todos%20de%20tasaci%C3%B3n" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+</div>
+</section>
+
+
+<!-- ===== 05 · TASACIONES DESTACADAS ===== -->
+<div style="background: var(--deep);">
+<section class="wrap" style="padding-top: 66px; padding-bottom: 66px;">
+<div class="lbl" style="color: var(--rojo); margin-bottom: 14px;">05 · Antecedentes</div>
+<div style="display: flex; align-items: center; gap: 13px; margin-bottom: 18px;"><span aria-hidden="true" style="color: var(--rojo); display: flex; flex: 0 0 auto;"><svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5"/></svg></span><h2 class="h" style="font-size: var(--h2); margin: 0;">Tasaciones destacadas</h2></div>
+<div class="falta"><b>Falta: los casos</b>Tres o cuatro alcanzan, y conviene que sean distintos entre sí: uno judicial, uno rural, uno de un inmueble especial. De cada uno necesito qué tipo de inmueble era, para qué se tasó y qué lo hacía difícil. <br><br><b style="margin-top: 14px;">Cuidado con esto</b>Acá hay un límite que conocés mejor que yo: los informes para juzgados, bancos y particulares suelen tener deber de reserva. Van sin nombres, sin direcciones y sin montos, salvo que tengas autorización escrita. Si dudás de alguno, lo dejamos afuera.</div>
+<div class="tas-cta">
+<p class="body">¿Tenés un caso parecido?</p>
+<a class="b b-tas" href="https://wa.me/5493624041532?text=Hola%2C%20tengo%20un%20caso%20para%20tasar%20y%20quisiera%20consultarte" target="_blank" rel="noopener noreferrer">Contame tu caso</a>
+</div>
+</section>
+</div>
+
+<!-- ===== CIERRE ===== -->
+<section class="wrap" style="padding-top: 62px; padding-bottom: 62px;">
+<div class="tas-cta" style="border-top: 0; padding-top: 0; margin-top: 0;">
+<p class="body" style="font-size: calc(var(--body) * 1.05);">Contame qué inmueble es y para qué necesitás la tasación. Con eso ya te puedo decir cómo se encuadra.</p>
+<a class="b b-tas" href="https://wa.me/5493624041532?text=Hola%2C%20quiero%20una%20tasaci%C3%B3n" target="_blank" rel="noopener noreferrer">Quiero una tasación</a>
+</div>
+</section>
+
+
+<!--REDES-AREA--><section class="wrap area-socials" aria-label="Redes de Olivari · Bienes raíces"><p class="lbl">Olivari · Bienes raíces en redes</p><div class="social-links"><a class="red" href="https://www.instagram.com/olivaribienesraices/" aria-label="Instagram de Olivari · Bienes raíces (abre en una pestaña nueva)" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.788.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"></path></svg><span>Instagram</span></a><a class="red" href="https://www.facebook.com/olivari.bienesraices/" aria-label="Facebook de Olivari · Bienes raíces (abre en una pestaña nueva)" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg><span>Facebook</span></a></div></section><!--/REDES-AREA--></main></div>
 </body>
 </html>

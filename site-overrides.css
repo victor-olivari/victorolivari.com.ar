@@ -239,11 +239,20 @@
   background-size: 100% 100%;
 }
 
-.page[data-page="BienesRaices"] .b-br,
-.page[data-page="Tasaciones"] main .b {
+.page[data-page="BienesRaices"] .b-br {
   background: var(--rojo);
   border-color: var(--rojo);
   color: #fff;
+}
+
+/* Tasaciones: el botón queda neutro y se pinta con el rojo de los segmentos
+   al pasar el mouse. Texto oscuro: el blanco sobre ese rojo no llega al
+   contraste mínimo para leerse bien. */
+.page[data-page="Tasaciones"] main .b:hover,
+.page[data-page="Tasaciones"] main .b:focus-visible {
+  background: var(--rojo);
+  border-color: var(--rojo);
+  color: #131618;
 }
 
 .page[data-page="BienesRaices"] .b-tas:hover,
@@ -359,4 +368,29 @@
   .page[data-page="SobreMi"] .about-creds .creds-list {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Texto justificado ──────────────────────────────────────────────────────
+   Pedido de Víctor, 20/09/2026. `hyphens: auto` es imprescindible: sin cortar
+   palabras, el justificado en castellano abre huecos enormes entre palabras.
+   Funciona porque las páginas declaran lang="es".
+   Se deja alineado a la izquierda lo que vive en columnas angostas o en líneas
+   sueltas, donde justificar sólo separa las palabras sin ganar nada. */
+.page main .body,
+.page main .relato p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.page main .card .body,
+.page main .tas-metodo .body,
+.page main .unit .body,
+.page main .tas-cta p,
+.page main .chip,
+.page main .lbl,
+.page main .aviso-form,
+.page main figcaption,
+.page main .falta {
+  text-align: left;
+  hyphens: manual;
 }
